@@ -1,0 +1,396 @@
+/**
+Theme Name: Musician Business
+Theme URI: https://creativthemes.com/downloads/musician-business
+Author: creativthemes
+Author URI: https://creativthemes.com
+Version: 1.0
+Requires PHP: 5.6
+Tested up to: 5.8
+Requires at least: 5.1
+Template: creativ-musician
+Text Domain: musician-business
+Description: Musician Business is a multipurpose and corporate theme developed specifically for all types of businesses like consulting financial adviser, medical, construction, tour, travels, interior design, agency, accountant, startup company, finance business , consulting firms, insurance, loan, tax help, investment firm etc. It is a child theme of Creativ Musician theme.
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: translation-ready, custom-background, theme-options, custom-menu, threaded-comments, featured-images, footer-widgets, editor-style, right-sidebar, full-width-template, two-columns, grid-layout, custom-colors, custom-header, custom-logo, featured-image-header, blog, portfolio, entertainment
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+#top-bar {
+    padding: 5px 0;
+}
+
+#masthead {
+    position: relative;
+}
+
+.main-navigation a {
+    font-weight: 400;
+}
+
+/*--------------------------------------------------------------
+# Colors
+--------------------------------------------------------------*/
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.main-navigation ul.nav-menu > li:last-child > a,
+.pagination .page-numbers.current,
+.pagination .page-numbers:hover,
+.pagination .page-numbers:focus,
+.widget_search form.search-form button.search-submit,
+.jetpack_subscription_widget input[type="submit"]:hover,
+.jetpack_subscription_widget input[type="submit"]:focus,
+#secondary .jetpack_subscription_widget input[type="submit"]:hover,
+#secondary .jetpack_subscription_widget input[type="submit"]:focus,
+.blog-posts .post-categories,
+.reply a,
+.btn,
+.slick-prev,
+.slick-next,
+.slick-dots li.slick-active button:before,
+#additional-info article .icon-container,
+#colophon .widget_search form.search-form button.search-submit,
+.backtotop,
+#gallery .fa:hover,
+#gallery .fa:focus,
+.wp-playlist-tracks .wp-playlist-item.wp-playlist-playing, 
+.wp-playlist-tracks .wp-playlist-item:hover,
+.wp-playlist .mejs-inner .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current,
+.wp-playlist .mejs-inner .mejs-controls .mejs-horizontal-volume-slider .mejs-horizontal-volume-current:after,
+.wp-playlist .mejs-inner .mejs-controls .mejs-time-rail .mejs-time-current {
+    background-color: #1e73be;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover,
+button:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active,
+.logged-in-as a:hover,
+.logged-in-as a:focus,
+a,
+.site-title a:hover,
+.site-title a:focus,
+.main-navigation ul.nav-menu > li:hover > a,
+.main-navigation ul.nav-menu .current_page_item > a,
+.main-navigation ul.nav-menu .current-menu-item > a,
+.main-navigation ul.nav-menu .current_page_ancestor > a,
+.main-navigation ul.nav-menu .current-menu-ancestor > a,
+.post-navigation a:hover, 
+.posts-navigation a:hover,
+.post-navigation a:focus, 
+.posts-navigation a:focus,
+.pagination .page-numbers,
+.pagination .page-numbers.dots:hover,
+.pagination .page-numbers.dots:focus,
+.pagination .page-numbers.prev,
+.pagination .page-numbers.next,
+#secondary a:hover,
+#secondary a:focus,
+.widget_popular_post h3 a:hover,
+.widget_popular_post h3 a:focus,
+.widget_popular_post a:hover time,
+.widget_popular_post a:focus time,
+.widget_latest_post h3 a:hover,
+.widget_latest_post h3 a:focus,
+.widget_latest_post a:hover time,
+.widget_latest_post a:focus time,
+.page-header small,
+.post-categories a,
+.post-categories a:hover,
+.post-categories a:focus,
+.tags-links a,
+.reply a:hover,
+.reply a:focus,
+.comment-meta .url:hover,
+.comment-meta .url:focus,
+.comment-metadata a:hover,
+.comment-metadata a:focus,
+.comment-metadata a:hover time,
+.comment-metadata a:focus time,
+.btn:hover,
+.btn:focus,
+.featured-content-wrapper .entry-title a:hover,
+.featured-content-wrapper .entry-title a:focus,
+#latest-albums article .entry-title a:hover,
+#latest-albums article .entry-title a:focus,
+#services .section-title a:hover,
+#services .section-title a:focus,
+#additional-info .entry-title,
+#additional-info article .entry-title a:hover,
+#additional-info article .entry-title a:focus,
+#testimonial .featured-image .entry-title a:hover,
+#testimonial .featured-image .entry-title a:focus,
+.post-item .entry-meta a:hover, 
+.post-item .entry-meta a:focus, 
+.cat-links:hover:before,
+.author.vcard:hover:before,
+.post-item .entry-title a:hover,
+.post-item .entry-title a:focus,
+.blog-posts-wrapper .entry-meta .date a:hover:before,
+.blog-posts-wrapper .entry-meta .date a:focus:before,
+.entry-meta a:hover,
+.entry-meta a:focus,
+.entry-meta a:hover:before,
+.entry-meta a:focus:before,
+#colophon a:hover,
+#colophon a:focus,
+#colophon li:hover:before,
+#secondary li:hover:before,
+#colophon .site-info a,
+#colophon .widget_recent_comments li a:hover,
+#colophon .widget_recent_comments li a:focus,
+#team .entry-title a:hover, 
+#team .entry-title a:focus,
+#gallery article .entry-title a:hover, 
+#gallery article .entry-title a:focus,
+.wp-playlist .mejs-button.mejs-volume-button.mejs-mute>button:before, 
+.wp-playlist .mejs-button.mejs-volume-button.mejs-unmute>button:before, 
+.wp-playlist .mejs-button.mejs-playpause-button.mejs-play>button:before, 
+.wp-playlist .mejs-button.mejs-playpause-button.mejs-pause>button:before, 
+.wp-playlist .wp-playlist-prev:before, .wp-playlist .wp-playlist-next:before,
+#top-bar .widget_address_block ul li a:hover,
+#top-bar .widget_address_block ul li a:focus,
+.post-item .entry-meta .date a:hover,
+.post-item .entry-meta .date a:focus {
+    color: #1e73be;
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.widget_search form.search-form input[type="search"]:focus,
+.tags-links a {
+    border-color: #1e73be;
+}
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+#top-bar .widget_address_block ul li,
+.site-title,
+.reply a,
+.btn {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/*--------------------------------------------------------------
+# Lite Version
+--------------------------------------------------------------*/
+body,
+.social-icons li a,
+#masthead {
+    background: #fff;
+}
+
+body, 
+button, 
+input, 
+select, 
+textarea,
+p,
+#services .entry-content, 
+#services .entry-content p,
+#colophon,
+#colophon a, 
+#colophon p, 
+#colophon li,
+.site-info,
+.site-description,
+#secondary a {
+	color: #777;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#additional-info article .entry-title a,
+#services .section-title, 
+#services .section-title a,
+.section-title,
+#latest-albums article .entry-title a,
+.post-item .entry-meta, 
+.post-item .entry-meta a, 
+.post-item .entry-meta a:before, 
+.post-item .entry-title a,
+.post-item .entry-meta .date a,
+#colophon .site-info a:hover, 
+#colophon .site-info a:focus,
+#top-bar .widget_address_block ul li,
+#top-bar .widget_address_block ul li a,
+.social-icons li a,
+.post-navigation a, 
+.posts-navigation a,
+.comments-title, 
+#reply-title,
+.logged-in-as a,
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="url"]:focus, 
+input[type="password"]:focus, 
+input[type="search"]:focus, 
+input[type="number"]:focus, 
+input[type="tel"]:focus, 
+input[type="range"]:focus, 
+input[type="date"]:focus, 
+input[type="month"]:focus, 
+input[type="week"]:focus, 
+input[type="time"]:focus, 
+input[type="datetime"]:focus, 
+input[type="datetime-local"]:focus, 
+input[type="color"]:focus, 
+textarea:focus,
+a:hover, 
+a:focus, 
+a:active,
+b, 
+strong,
+.comment-metadata a, 
+.comment-metadata a time,
+.comment-meta .url, 
+.comment-meta .fn {
+	color: #000;
+}
+
+#services .entry-container,
+.featured-album-wrapper,
+.post-item,
+#colophon,
+.site-info,
+#top-bar,
+#secondary .widget,
+.wp-block-pullquote, 
+.wp-block-quote, 
+.wp-block-quote:not(.is-large):not(.is-style-large),
+pre,
+.navigation.post-navigation, 
+.navigation.posts-navigation,
+input[type="text"], 
+input[type="email"], 
+input[type="url"], 
+input[type="password"], 
+input[type="search"], 
+input[type="number"], 
+input[type="tel"], 
+input[type="range"], 
+input[type="date"], 
+input[type="month"], 
+input[type="week"], 
+input[type="time"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="color"], 
+textarea {
+    background-color: #eee;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="url"], 
+input[type="password"], 
+input[type="search"], 
+input[type="number"], 
+input[type="tel"], 
+input[type="range"], 
+input[type="date"], 
+input[type="month"], 
+input[type="week"], 
+input[type="time"], 
+input[type="datetime"], 
+input[type="datetime-local"], 
+input[type="color"], 
+textarea {
+    border-color: #eee;
+    color: #000;
+}
+
+.footer-widgets-area {
+    border-bottom: 1px solid rgb(0 0 0 / 15%);
+}
+
+.menu-toggle span {
+	background-color: #000;
+}
+.main-navigation ul.nav-menu > li:last-child:hover > a, 
+.main-navigation ul.nav-menu > li:last-child > a:hover,
+.main-navigation ul.nav-menu > li:last-child.focus > a, 
+.main-navigation ul.nav-menu > li:last-child > a:focus {
+    color: #fff;
+    background-color: #292929;
+}
+
+.wp-block-pullquote, 
+.wp-block-quote, 
+.wp-block-quote:not(.is-large):not(.is-style-large) {
+	border-left-color: #000;
+}
+
+.logged-in-as a {
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
+@media screen and (min-width: 1024px) {
+    .main-navigation ul ul li:hover > a {
+        background-color: #1e73be;
+        color: #fff;
+    }
+    .main-navigation ul.nav-menu > li > a {
+    	color: #000;
+    }
+    .main-navigation ul ul li.focus > ul {
+	    left: auto;
+	    right: 100%;
+	}
+    .site-branding {
+        float: none;
+        text-align: center;
+        min-height: auto;
+        display: block;
+        border-bottom: 1px solid #eee;
+        padding: 15px 0;
+    }
+
+    .main-navigation {
+        float: none;
+        text-align: center;
+    }
+
+    .main-navigation ul.nav-menu > li > a {
+        padding: 20px 25px;
+    }
+}

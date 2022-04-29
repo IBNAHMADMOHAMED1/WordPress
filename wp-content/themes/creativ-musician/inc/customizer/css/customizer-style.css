@@ -1,0 +1,362 @@
+/**
+* Custom Css for backend 
+*
+* @package Creativ Musician
+*/
+#creativ-musician-img-container li{
+    padding: 3px;
+}
+#creativ-musician-img-container .creativ-musician-radio-img-selected{
+    border: 3px solid #dd3333;
+}
+
+/**
+* Custom Css for backend 
+*
+* Repeater Text 
+* 
+*/
+.customize-control-repeater-text .repeater-text-fields .set {
+    margin-bottom: 5px;
+    padding-right: 15px;
+    position: relative;
+}
+
+.customize-control-repeater-text .repeater-text-fields input {
+    margin-bottom: 5px!important;
+}
+
+.customize-control-repeater-text .btn-remove-field {
+    color: red;
+    position: absolute;
+    right: -7px;
+    top: 3px;
+}
+
+.customize-control-repeater-text .btn-remove-field span {
+    text-decoration: none;
+}
+
+.customize-control-repeater-text .btn-remove-field:active,
+.customize-control-repeater-text .btn-remove-field:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Radio Image */
+.customize-control-radio-image input.stylish-radio-image {
+    display: none;
+}
+
+.customize-control-radio-image input.stylish-radio-image + span {
+    display: inline-flex;
+    padding: 3px!important;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    border: 2px solid #FFFFFF;
+    margin-bottom: 10px;
+}
+.customize-control-radio-image input.stylish-radio-image + span:hover{
+    opacity: 0.7;
+}
+.customize-control-radio-image input.stylish-radio-image:checked + span {
+    border: 2px solid #777777;
+}
+
+/* Custom CSS */
+.customize-control-range input[type="range"] {
+    -webkit-appearance: none;
+    width: 90%;
+    height: 5px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    opacity: 0.7;
+}
+.customize-control-range input[type="range"]:hover {
+    opacity: 1;
+}
+.customize-control-range input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #3498D9;
+    cursor: pointer;
+}
+.customize-control-range input[type="range"]::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #3498D9;
+    cursor: pointer;
+}
+.customize-control .customize-inside-control-row {
+    position: relative;
+    width: 52px;
+    padding: 0;
+    display: inline-block;
+    float: right;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+.customize-inside-control-row input[type="checkbox"] {
+    display:none;
+}
+.customize-inside-control-row input[type="checkbox"] + label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 22px;
+    padding: 0;
+    line-height: 19px;
+    text-indent: -1000px;
+    transition: background-color 0.2s ease-in;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 30px;
+    background-color: #3caf0e;
+    margin-bottom: 20px;
+    -webkit-box-shadow: inset 0 2px 1px rgba(0, 0, 0, .11);
+    -moz-box-shadow: inset 0 2px 1px rgba(0, 0, 0, .11);
+    box-shadow: inset 0 2px 1px rgba(0, 0, 0, .11);
+}
+.customize-inside-control-row input[type="checkbox"] + label:before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    position: absolute;
+    top: 2px;
+    bottom: 0;
+    right: 4px;
+    background-color: #fff;
+    text-indent: 0;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in 0s;
+}
+.customize-inside-control-row input[type="checkbox"]:checked + label:before {
+    right: 32px;
+}
+.customize-inside-control-row input[type="checkbox"]:checked + label:after {
+    content: "OFF";
+    display: block;
+    color: #FFF;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 6px;
+    font-size: 11px;
+    font-family: 'Arial';
+}
+
+input[type="checkbox"]:checked + label {    
+    background-color: #c4c4c4;
+}
+input[type="checkbox"] + label:before {
+    right: 32px;
+}
+.customize-inside-control-row input[type="checkbox"] + label:after {
+    content: "ON";
+    display: block;
+    color: #FFF;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 27px;
+    font-size: 11px;
+    text-indent: 0;
+    font-family: 'Arial';
+}
+#customize-control-show_on_front.customize-control .customize-inside-control-row,
+#customize-control-theme_options-primary_color.customize-control .customize-inside-control-row {
+    position: relative;
+    width: auto;
+    padding: 6px 0;
+    display: block;
+    float: none;
+} 
+li:not(.customize-control-dropdown-pages).customize-control-number .customize-control-title,
+li:not(.customize-control-dropdown-pages).customize-control-select .customize-control-title,
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[featured_posts_title]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[about_us_section_subtitle]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[team_title]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[team_subtitle]"],
+li:not(.customize-control-dropdown-pages).customize-control-textarea label[for="_customize-input-theme_options[cta_description]"],
+li:not(.customize-control-dropdown-pages).customize-control-textarea label[for="_customize-input-theme_options[cta_small_description]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[counter_section_title]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[gallery_title]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[gallery_subtitle]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[testimonial_title]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[testimonial_subtitle]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[logo_title]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[logo_subtitle]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[blog_title]"],
+li:not(.customize-control-dropdown-pages).customize-control-text label[for="_customize-input-theme_options[blog_subtitle]"],
+li#customize-control-theme_options-blog_category .customize-control-select .customize-control-title,
+li#customize-control-theme_options-background_counter_section .customize-control-title,
+li#customize-control-theme_options-background_cta_section .customize-control-title,
+li#customize-control-theme_options-background_testimonial_section .customize-control-title,
+li#customize-control-theme_options-additional_info_section_title label[for="_customize-input-theme_options[additional_info_section_title]"],
+li#customize-control-theme_options-additional_info_section_subtitle label[for="_customize-input-theme_options[additional_info_section_subtitle]"],
+li#customize-control-theme_options-layout_options_blog span,
+li#customize-control-theme_options-layout_options_archive span,
+li#customize-control-theme_options-layout_options_page span,
+li#customize-control-theme_options-layout_options_single span,
+li#customize-control-theme_options-layout_options_boxed span,
+li#customize-control-theme_options-copyright_text label,
+li#customize-control-theme_options-archive_header_image label,
+li#customize-control-theme_options-search_header_image label,
+li#customize-control-theme_options-404_header_image label,
+#customize-control-show_on_front.customize-control .customize-control-title,
+#customize-control-background_image .customize-control-title,
+#customize-control-header_image label span,
+#customize-control-header_image .customize-control-title.header-default,
+#customize-control-header_textcolor > span,
+#customize-control-background_color > span,
+#customize-control-theme_options-primary_color > span.customize-control-title,
+#customize-control-custom_logo > label,
+#customize-control-blogname > label,
+#customize-control-blogdescription > label,
+#customize-control-site_icon > label > span.customize-control-title,
+#customize-control-theme_options-header_social_links h3 > span,
+#customize-control-theme_options-header_location > .customize-control-title,
+#customize-control-theme_options-header_phone > .customize-control-title,
+#customize-control-theme_options-header_email > .customize-control-title,
+#customize-control-theme_options-custom_theme_color > .customize-control-title {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    background-color: #033d75;
+    padding: 8px;
+    text-align: center;
+    color: #fff;
+}
+#customize-control-display_header_text.customize-control .customize-inside-control-row {
+    width: auto;
+    float: none;
+}
+#customize-control-display_header_text.customize-control .customize-inside-control-row input[type="checkbox"] + label:before,
+#customize-control-display_header_text.customize-control .customize-inside-control-row input[type="checkbox"] + label:before,
+#customize-control-display_header_text.customize-control .customize-inside-control-row input[type="checkbox"] + label:after,
+#customize-control-display_header_text.customize-control .customize-inside-control-row input[type="checkbox"] + label:after {
+    display: none;
+}
+#customize-control-display_header_text.customize-control .customize-inside-control-row input[type="checkbox"] + label {
+    display: inline-block;
+    overflow: visible;
+    height: auto;
+    padding: 3px 0 6px;
+    line-height: 1;
+    background-color: transparent;
+    box-shadow: none;
+    text-indent: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+#customize-control-display_header_text.customize-control .customize-inside-control-row input[type="checkbox"] {
+    display: inline-block;
+}
+
+/*------------------------
+Top Bar Css
+-------------------------*/
+
+#customize-control-theme_options-show_header_contact_info .customize-inside-control-row input[type="checkbox"]:checked + label,
+#customize-control-theme_options-show_header_social_links .customize-inside-control-row input[type="checkbox"]:checked + label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    height: 22px;
+    padding: 0;
+    line-height: 19px;
+    text-indent: -1000px;
+    transition: background-color 0.2s ease-in;
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 30px;
+    background-color: #3caf0e;
+    margin-bottom: 20px;
+    -webkit-box-shadow: inset 0 2px 1px rgba(0, 0, 0, .11);
+    -moz-box-shadow: inset 0 2px 1px rgba(0, 0, 0, .11);
+    box-shadow: inset 0 2px 1px rgba(0, 0, 0, .11);
+}
+#customize-control-theme_options-show_header_contact_info .customize-inside-control-row input[type="checkbox"]:checked + label:before,
+#customize-control-theme_options-show_header_social_links .customize-inside-control-row input[type="checkbox"]:checked + label:before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    position: absolute;
+    top: 2px;
+    bottom: 0;
+    right: 4px;
+    background-color: #fff;
+    text-indent: 0;
+    -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    -moz-box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, .1);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease-in 0s;
+}
+#customize-control-theme_options-show_header_contact_info .customize-inside-control-row input[type="checkbox"] + label:before,
+#customize-control-theme_options-show_header_social_links .customize-inside-control-row input[type="checkbox"] + label:before {
+    right: 32px;
+}
+#customize-control-theme_options-show_header_contact_info .customize-inside-control-row input[type="checkbox"] + label:after,
+#customize-control-theme_options-show_header_social_links .customize-inside-control-row input[type="checkbox"] + label:after {
+    content: "OFF";
+    display: block;
+    color: #FFF;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 6px;
+    font-size: 11px;
+    font-family: 'Arial';
+}
+#customize-control-theme_options-show_header_contact_info input[type="checkbox"] + label,
+#customize-control-theme_options-show_header_social_links input[type="checkbox"] + label {    
+    background-color: #c4c4c4;
+}
+#customize-control-theme_options-show_header_contact_info input[type="checkbox"]:checked + label:before,
+#customize-control-theme_options-show_header_social_links input[type="checkbox"]:checked + label:before {
+    right: 32px;
+}
+#customize-control-theme_options-show_header_contact_info .customize-inside-control-row input[type="checkbox"]:checked + label:after,
+#customize-control-theme_options-show_header_social_links .customize-inside-control-row input[type="checkbox"]:checked + label:after {
+    content: "ON";
+    display: block;
+    color: #FFF;
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    right: 27px;
+    font-size: 11px;
+    text-indent: 0;
+    font-family: 'Arial';
+}
+
+#customize-control-theme_options-enable_frontpage_content span.customize-inside-control-row {
+    width: 100%;
+}
+
+#customize-control-theme_options-enable_frontpage_content label {
+    width: 52px;
+    position: relative;
+}

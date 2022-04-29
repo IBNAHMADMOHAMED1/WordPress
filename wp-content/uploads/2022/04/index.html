@@ -1,0 +1,44 @@
+
+<!-- saved from url=(0046)http://127.0.0.1:5500/brief3-master/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><svg style="fill:#0abab5" viewBox="0 0 1000 100" preserveAspectRatio="none">
+  <path style="opacity:0.33" d="M1000 95L0 0v100h1000v-5z"></path>
+  <path style="opacity:0.66" d="M1000 95L0 27.056V100h1000v-5z"></path>
+  <path d="M1000 95L0 54.113V100h1000v-5z"></path>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	//   &lt;-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i &lt; sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href &amp;&amp; typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&amp;|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') &gt;= 0 ? '&amp;' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage &amp;&amp; !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// 
+</script></svg></body></html>
