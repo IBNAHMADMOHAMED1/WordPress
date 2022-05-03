@@ -217,8 +217,6 @@ class Forminator_Upload extends Forminator_Field {
 			);
 		}
 
-		$html .= self::get_description( $description, 'forminator-field-' . $id );
-
 		if ( 'multiple' === $file_type ) {
 			$html .= sprintf( '<ul class="forminator-uploaded-files upload-container-%s"></ul>', $id );
 		}

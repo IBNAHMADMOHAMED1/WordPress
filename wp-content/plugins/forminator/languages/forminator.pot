@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Forminator package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Forminator 1.15.12\n"
+"Project-Id-Version: Forminator 1.15.13\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/forminator\n"
-"POT-Creation-Date: 2022-03-11 06:37:48+00:00\n"
+"POT-Creation-Date: 2022-05-03 09:44:49+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1910,7 +1910,7 @@ msgstr ""
 
 #: addons/pro/googlesheet/class-forminator-addon-googlesheet.php:633
 #: addons/pro/trello/class-forminator-addon-trello.php:624
-#: admin/classes/class-admin.php:218 admin/classes/class-admin.php:317
+#: admin/classes/class-admin.php:241 admin/classes/class-admin.php:340
 #: admin/views/dashboard/widgets/widget-upgrade.php:7
 #: library/helpers/helper-core.php:648
 msgid "Forminator Pro"
@@ -2513,7 +2513,6 @@ msgstr ""
 
 #: addons/pro/hubspot/views/settings/authorize.php:79
 #: addons/pro/hubspot/views/settings/error-authorize.php:52
-#: library/modules/custom-forms/front/front-render.php:221
 msgid "Authenticate"
 msgstr ""
 
@@ -2849,8 +2848,8 @@ msgid "is connected successfully."
 msgstr ""
 
 #: addons/pro/mailchimp/class-forminator-addon-mailchimp.php:669
-#: admin/classes/class-admin-ajax.php:1866
-#: admin/classes/class-admin-ajax.php:1992
+#: admin/classes/class-admin-ajax.php:1869
+#: admin/classes/class-admin-ajax.php:1995
 msgid "Connect"
 msgstr ""
 
@@ -3817,8 +3816,8 @@ msgstr ""
 
 #: admin/abstracts/class-admin-import-mediator.php:236
 #: admin/abstracts/class-admin-import-mediator.php:240
-#: admin/classes/class-admin-ajax.php:1208
-#: admin/classes/class-admin-ajax.php:1212
+#: admin/classes/class-admin-ajax.php:1211
+#: admin/classes/class-admin-ajax.php:1215
 msgid ""
 "Oops, looks like we found an issue. Import text can not include whitespace "
 "or special characters."
@@ -3934,7 +3933,7 @@ msgid "Reset Tracking data"
 msgstr ""
 
 #: admin/abstracts/class-admin-module-edit-page.php:365
-#: admin/classes/class-admin.php:892 admin/locale.php:5
+#: admin/classes/class-admin.php:915 admin/locale.php:5
 #: library/modules/custom-forms/admin/admin-loader.php:115
 msgid "Apply Preset"
 msgstr ""
@@ -3988,7 +3987,7 @@ msgstr ""
 
 #: admin/abstracts/class-admin-module-edit-page.php:433
 #: admin/abstracts/class-admin-module-edit-page.php:449
-#: admin/classes/class-admin.php:297 admin/locale.php:235
+#: admin/classes/class-admin.php:320 admin/locale.php:235
 #: admin/views/common/entries/content-none.php:2
 #: admin/views/common/entries/header.php:2
 #: admin/views/common/list/chart_script.php:37
@@ -4056,17 +4055,17 @@ msgid "Plugins"
 msgstr ""
 
 #: admin/abstracts/class-admin-page.php:242
-#: admin/abstracts/class-admin-page.php:256 admin/classes/class-admin.php:765
+#: admin/abstracts/class-admin-page.php:256 admin/classes/class-admin.php:788
 msgid "Roadmap"
 msgstr ""
 
 #: admin/abstracts/class-admin-page.php:243
-#: admin/abstracts/class-admin-page.php:257 admin/classes/class-admin.php:753
+#: admin/abstracts/class-admin-page.php:257 admin/classes/class-admin.php:776
 msgid "Support"
 msgstr ""
 
 #: admin/abstracts/class-admin-page.php:244
-#: admin/abstracts/class-admin-page.php:258 admin/classes/class-admin.php:687
+#: admin/abstracts/class-admin-page.php:258 admin/classes/class-admin.php:710
 msgid "Docs"
 msgstr ""
 
@@ -4230,198 +4229,198 @@ msgstr ""
 msgid "Form model doesn't exist"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:426 admin/locale.php:1151
-#: library/abstracts/abstract-class-front-action.php:775
+#: admin/classes/class-admin-ajax.php:429 admin/locale.php:1151
+#: library/abstracts/abstract-class-front-action.php:778
 msgid "Something went wrong."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:429
+#: admin/classes/class-admin-ajax.php:432
 msgid "Preset successfully applied to %d form(s)."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:465
+#: admin/classes/class-admin-ajax.php:468
 msgid "Preset Name is empty."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:490
+#: admin/classes/class-admin-ajax.php:493
 msgid "Preset ID is empty."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:493
+#: admin/classes/class-admin-ajax.php:496
 msgid "Preset ID is incorrect."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:516
+#: admin/classes/class-admin-ajax.php:519
 msgid "Appearance preset id doesn't exist"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:526
+#: admin/classes/class-admin-ajax.php:529
 msgid "The preset has been successfully updated."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:716
+#: admin/classes/class-admin-ajax.php:719
 msgid "You have to first save your credentials to load the reCAPTCHA . "
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:747
+#: admin/classes/class-admin-ajax.php:750
 msgid "Save your API keys to load the hCAPTCHA preview."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:785
-#: admin/classes/class-admin-ajax.php:1533
-#: admin/classes/class-admin-ajax.php:1616
+#: admin/classes/class-admin-ajax.php:788
+#: admin/classes/class-admin-ajax.php:1536
+#: admin/classes/class-admin-ajax.php:1619
 msgid "Limit per page can not be less than one."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:897
+#: admin/classes/class-admin-ajax.php:900
 msgid "Not valid module ID provided."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:913
+#: admin/classes/class-admin-ajax.php:916
 msgid "No ID was provided."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:919
+#: admin/classes/class-admin-ajax.php:922
 msgid "Exports cleared."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:921
+#: admin/classes/class-admin-ajax.php:924
 msgid "Exports couldn't be cleared."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1170
+#: admin/classes/class-admin-ajax.php:1173
 msgid "Required id parameter is not set."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1175
+#: admin/classes/class-admin-ajax.php:1178
 msgid "Tracking Data has been reset successfully."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1185
-#: admin/classes/class-admin-ajax.php:1301
-#: admin/classes/class-admin-ajax.php:1367
-#: admin/classes/class-admin-ajax.php:1434
+#: admin/classes/class-admin-ajax.php:1188
+#: admin/classes/class-admin-ajax.php:1304
+#: admin/classes/class-admin-ajax.php:1370
+#: admin/classes/class-admin-ajax.php:1437
 msgid "Import Export Feature disabled."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1204
+#: admin/classes/class-admin-ajax.php:1207
 msgid "Import text can not be empty."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1223
+#: admin/classes/class-admin-ajax.php:1226
 msgid ""
 "Failed to import module, please make sure import text is valid, and try "
 "again."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1333
+#: admin/classes/class-admin-ajax.php:1336
 msgid "Can't find form to import"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1337
-#: admin/classes/class-admin-ajax.php:1406
+#: admin/classes/class-admin-ajax.php:1340
+#: admin/classes/class-admin-ajax.php:1409
 msgid "Could not import the forms. Check if the selected form plugin is active"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1646
+#: admin/classes/class-admin-ajax.php:1649
 msgid "Calculation formula validated successfully."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1649
+#: admin/classes/class-admin-ajax.php:1652
 msgid "Invalid calculation formula. Please check again."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1667
+#: admin/classes/class-admin-ajax.php:1670
 msgid "Stripe account disconnected successfully."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1694
+#: admin/classes/class-admin-ajax.php:1697
 msgid "PayPal account disconnected successfully."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1820
+#: admin/classes/class-admin-ajax.php:1823
 msgid ""
 "Stripe account connected successfully. You can now add the Stripe field to "
 "your forms and start collecting payments."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1830
+#: admin/classes/class-admin-ajax.php:1833
 msgid "Please input test publishable key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1833
+#: admin/classes/class-admin-ajax.php:1836
 msgid "Please input test secret key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1836
+#: admin/classes/class-admin-ajax.php:1839
 msgid "Please input live publishable key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1839
-#: admin/classes/class-admin-ajax.php:1965
+#: admin/classes/class-admin-ajax.php:1842
+#: admin/classes/class-admin-ajax.php:1968
 msgid "Please input live secret key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1842
+#: admin/classes/class-admin-ajax.php:1845
 msgid "You've entered an invalid test secret key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1845
-#: admin/classes/class-admin-ajax.php:1971
+#: admin/classes/class-admin-ajax.php:1848
+#: admin/classes/class-admin-ajax.php:1974
 msgid "You've entered an invalid live secret key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1848
+#: admin/classes/class-admin-ajax.php:1851
 msgid "You've entered an invalid test publishable key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1851
+#: admin/classes/class-admin-ajax.php:1854
 msgid "You've entered an invalid live publishable key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1946
+#: admin/classes/class-admin-ajax.php:1949
 msgid ""
 "PayPal account connected successfully. You can now add the PayPal field to "
 "your forms and start collecting payments."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1956
+#: admin/classes/class-admin-ajax.php:1959
 msgid "Please input sandbox client id"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1959
+#: admin/classes/class-admin-ajax.php:1962
 msgid "Please input sandbox secret key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1962
+#: admin/classes/class-admin-ajax.php:1965
 msgid "Please input live client id"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1968
+#: admin/classes/class-admin-ajax.php:1971
 msgid "You've entered an invalid sandbox secret key"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1974
+#: admin/classes/class-admin-ajax.php:1977
 msgid "You've entered an invalid sandbox client id"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:1977
+#: admin/classes/class-admin-ajax.php:1980
 msgid "You've entered an invalid live client id"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:2150
+#: admin/classes/class-admin-ajax.php:2153
 msgid "All the submissions deleted successfully."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:2157
+#: admin/classes/class-admin-ajax.php:2160
 msgid "Submission delete failed."
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:2239
+#: admin/classes/class-admin-ajax.php:2242
 msgid "Required field missing"
 msgstr ""
 
-#: admin/classes/class-admin-ajax.php:2249
+#: admin/classes/class-admin-ajax.php:2252
 msgid "Unexpected action, we could not handle it."
 msgstr ""
 
@@ -4784,7 +4783,7 @@ msgid ""
 "etc.) on your quiz."
 msgstr ""
 
-#: admin/classes/class-admin-l10n.php:125 admin/classes/class-admin.php:544
+#: admin/classes/class-admin-l10n.php:125 admin/classes/class-admin.php:567
 #: admin/views/dashboard/footer-free.php:64
 msgid "Learn more"
 msgstr ""
@@ -5551,8 +5550,8 @@ msgid "Material Design"
 msgstr ""
 
 #: admin/classes/class-admin-l10n.php:330
+#: library/abstracts/abstract-class-field.php:717
 #: library/abstracts/abstract-class-field.php:718
-#: library/abstracts/abstract-class-field.php:719
 #: library/helpers/helper-core.php:428
 msgid "No file chosen"
 msgstr ""
@@ -5588,43 +5587,43 @@ msgstr ""
 
 #: admin/classes/class-admin-l10n.php:345
 #: admin/classes/class-admin-l10n.php:446
-#: library/modules/custom-forms/front/front-render.php:2213
+#: library/modules/custom-forms/front/front-render.php:2225
 msgid "Su"
 msgstr ""
 
 #: admin/classes/class-admin-l10n.php:346
 #: admin/classes/class-admin-l10n.php:447
-#: library/modules/custom-forms/front/front-render.php:2214
+#: library/modules/custom-forms/front/front-render.php:2226
 msgid "Mo"
 msgstr ""
 
 #: admin/classes/class-admin-l10n.php:347
 #: admin/classes/class-admin-l10n.php:448
-#: library/modules/custom-forms/front/front-render.php:2215
+#: library/modules/custom-forms/front/front-render.php:2227
 msgid "Tu"
 msgstr ""
 
 #: admin/classes/class-admin-l10n.php:348
 #: admin/classes/class-admin-l10n.php:449
-#: library/modules/custom-forms/front/front-render.php:2216
+#: library/modules/custom-forms/front/front-render.php:2228
 msgid "We"
 msgstr ""
 
 #: admin/classes/class-admin-l10n.php:349
 #: admin/classes/class-admin-l10n.php:450
-#: library/modules/custom-forms/front/front-render.php:2217
+#: library/modules/custom-forms/front/front-render.php:2229
 msgid "Th"
 msgstr ""
 
 #: admin/classes/class-admin-l10n.php:350
 #: admin/classes/class-admin-l10n.php:451
-#: library/modules/custom-forms/front/front-render.php:2218
+#: library/modules/custom-forms/front/front-render.php:2230
 msgid "Fr"
 msgstr ""
 
 #: admin/classes/class-admin-l10n.php:351
 #: admin/classes/class-admin-l10n.php:452
-#: library/modules/custom-forms/front/front-render.php:2219
+#: library/modules/custom-forms/front/front-render.php:2231
 msgid "Sa"
 msgstr ""
 
@@ -5650,7 +5649,7 @@ msgstr ""
 
 #: admin/classes/class-admin-l10n.php:358
 #: admin/classes/class-admin-l10n.php:468
-#: library/modules/custom-forms/front/front-render.php:2226
+#: library/modules/custom-forms/front/front-render.php:2238
 msgid "May"
 msgstr ""
 
@@ -5745,56 +5744,56 @@ msgstr ""
 msgid "Forminator"
 msgstr ""
 
-#: admin/classes/class-admin.php:222
+#: admin/classes/class-admin.php:245
 msgid "Forminator Dashboard"
 msgstr ""
 
-#: admin/classes/class-admin.php:222 admin/views/dashboard/header.php:2
+#: admin/classes/class-admin.php:245 admin/views/dashboard/header.php:2
 #: admin/views/settings/tab-dashboard.php:4
 msgid "Dashboard"
 msgstr ""
 
-#: admin/classes/class-admin.php:243 admin/classes/class-admin.php:244
+#: admin/classes/class-admin.php:266 admin/classes/class-admin.php:267
 #: admin/locale.php:731 admin/views/integrations/header.php:2
 msgid "Integrations"
 msgstr ""
 
-#: admin/classes/class-admin.php:275
+#: admin/classes/class-admin.php:298
 msgid "Global Settings"
 msgstr ""
 
-#: admin/classes/class-admin.php:275 admin/classes/class-admin.php:684
+#: admin/classes/class-admin.php:298 admin/classes/class-admin.php:707
 #: admin/locale.php:178 admin/views/settings/header.php:2
 #: library/modules/quizzes/admin/admin-loader.php:527
 msgid "Settings"
 msgstr ""
 
-#: admin/classes/class-admin.php:296
+#: admin/classes/class-admin.php:319
 msgid "Forminator Submissions"
 msgstr ""
 
-#: admin/classes/class-admin.php:317 admin/classes/class-admin.php:694
+#: admin/classes/class-admin.php:340 admin/classes/class-admin.php:717
 #: admin/views/upgrade/upgrade-content.php:17
 msgid "Upgrade to Forminator Pro"
 msgstr ""
 
-#: admin/classes/class-admin.php:338
+#: admin/classes/class-admin.php:361
 msgid "Forminator Add-ons"
 msgstr ""
 
-#: admin/classes/class-admin.php:340
+#: admin/classes/class-admin.php:363
 msgid "Add-ons %1$sNew%2$s"
 msgstr ""
 
-#: admin/classes/class-admin.php:407 admin/classes/class-admin.php:694
+#: admin/classes/class-admin.php:430 admin/classes/class-admin.php:717
 msgid "Upgrade"
 msgstr ""
 
-#: admin/classes/class-admin.php:410
+#: admin/classes/class-admin.php:433
 msgid "Hey"
 msgstr ""
 
-#: admin/classes/class-admin.php:414
+#: admin/classes/class-admin.php:437
 #. translators: user's name
 msgid ""
 "%s, it appears you have an active WPMU DEV membership but haven't upgraded "
@@ -5802,11 +5801,11 @@ msgid ""
 "for it!"
 msgstr ""
 
-#: admin/classes/class-admin.php:468
+#: admin/classes/class-admin.php:491
 msgid "Forminator - Import your Contact Form 7 forms automatically"
 msgstr ""
 
-#: admin/classes/class-admin.php:470
+#: admin/classes/class-admin.php:493
 msgid ""
 "We noticed that Contact Form 7 is active on your website. You can use our "
 "built-in Contact Form 7 importer to import your existing forms and the "
@@ -5814,11 +5813,11 @@ msgid ""
 "supports the most widely used add-ons as well."
 msgstr ""
 
-#: admin/classes/class-admin.php:474
+#: admin/classes/class-admin.php:497
 msgid "Import Contact Form 7 Forms"
 msgstr ""
 
-#: admin/classes/class-admin.php:476 admin/classes/class-admin.php:545
+#: admin/classes/class-admin.php:499 admin/classes/class-admin.php:568
 #: admin/locale.php:812
 #: library/lib/dash-notice/wpmudev-dash-notification.php:248
 #: library/lib/dash-notice/wpmudev-dash-notification.php:289
@@ -5826,7 +5825,7 @@ msgstr ""
 msgid "Dismiss"
 msgstr ""
 
-#: admin/classes/class-admin.php:541
+#: admin/classes/class-admin.php:564
 msgid ""
 "To make Forminator's Stripe field <a href=\"%s\" target=\"_blank\">SCA "
 "Compliant</a>, we have replaced the Stripe Checkout modal with Stripe "
@@ -5835,7 +5834,7 @@ msgid ""
 "updated, but we recommend checking them to ensure everything works fine."
 msgstr ""
 
-#: admin/classes/class-admin.php:600
+#: admin/classes/class-admin.php:623
 msgid ""
 "Awesome! You've published more than %d modules with Forminator. Hope you "
 "are enjoying it so far. We have spent countless hours developing this free "
@@ -5843,21 +5842,21 @@ msgid ""
 "rating on wp.org to help us spread the word and boost our motivation."
 msgstr ""
 
-#: admin/classes/class-admin.php:603 admin/classes/class-admin.php:629
-#: admin/classes/class-admin.php:752 admin/views/common/entries/prompt.php:41
+#: admin/classes/class-admin.php:626 admin/classes/class-admin.php:652
+#: admin/classes/class-admin.php:775 admin/views/common/entries/prompt.php:41
 msgid "Rate Forminator"
 msgstr ""
 
-#: admin/classes/class-admin.php:605 admin/classes/class-admin.php:633
+#: admin/classes/class-admin.php:628 admin/classes/class-admin.php:656
 #: admin/views/common/entries/prompt.php:45
 msgid "Maybe later"
 msgstr ""
 
-#: admin/classes/class-admin.php:607 admin/views/common/entries/prompt.php:49
+#: admin/classes/class-admin.php:630 admin/views/common/entries/prompt.php:49
 msgid "No Thanks"
 msgstr ""
 
-#: admin/classes/class-admin.php:625
+#: admin/classes/class-admin.php:648
 msgid ""
 "Excellent! You've been using Forminator for a while now. Hope you are "
 "enjoying it so far. We have spent countless hours developing this free "
@@ -5865,11 +5864,11 @@ msgid ""
 "rating on wp.org to help us spread the word and boost our motivation."
 msgstr ""
 
-#: admin/classes/class-admin.php:684
+#: admin/classes/class-admin.php:707
 msgid "Go to Forminator Settings"
 msgstr ""
 
-#: admin/classes/class-admin.php:696
+#: admin/classes/class-admin.php:719
 msgid "Upgrade 35% OFF Sale"
 msgstr ""
 
@@ -5877,67 +5876,85 @@ msgstr ""
 msgid "WPMU DEV"
 msgstr ""
 
-#: admin/classes/class-admin.php:728
+#: admin/classes/class-admin.php:751
 msgid "By %s"
 msgstr ""
 
-#: admin/classes/class-admin.php:744
+#: admin/classes/class-admin.php:767
 #. translators: %s: Plugin name.
 msgid "More information about %s"
 msgstr ""
 
-#: admin/classes/class-admin.php:746 admin/classes/class-admin.php:760
+#: admin/classes/class-admin.php:769 admin/classes/class-admin.php:783
 msgid "View details"
 msgstr ""
 
-#: admin/classes/class-admin.php:763
+#: admin/classes/class-admin.php:786
 msgid "Premium Support"
 msgstr ""
 
-#: admin/classes/class-admin.php:804
+#: admin/classes/class-admin.php:827
 msgid "New update available for one or more Add-ons."
 msgstr ""
 
-#: admin/classes/class-admin.php:808
+#: admin/classes/class-admin.php:831
 msgid ""
 "A new update is available for one or more of your Forminator Add-ons. Click "
 "on the button below to check and update the required Add-on."
 msgstr ""
 
-#: admin/classes/class-admin.php:813
+#: admin/classes/class-admin.php:836
 msgid "View and Update"
 msgstr ""
 
-#: admin/classes/class-admin.php:815
+#: admin/classes/class-admin.php:838
 msgid "Remind me later"
 msgstr ""
 
-#: admin/classes/class-admin.php:863 library/class-shortcode-generator.php:235
+#: admin/classes/class-admin.php:886 library/class-shortcode-generator.php:235
 msgid "Close this dialog window."
 msgstr ""
 
-#: admin/classes/class-admin.php:866
+#: admin/classes/class-admin.php:889
 #: library/modules/custom-forms/admin/admin-loader.php:110
 msgid "Choose Preset"
 msgstr ""
 
-#: admin/classes/class-admin.php:869
+#: admin/classes/class-admin.php:892
 #: library/modules/custom-forms/admin/admin-loader.php:111
 msgid ""
 "Select an appearance preset from the list below to apply the appearance to "
 "the selected form(s)"
 msgstr ""
 
-#: admin/classes/class-admin.php:882
+#: admin/classes/class-admin.php:905
 #: library/modules/custom-forms/admin/admin-loader.php:113
 msgid ""
 "The current appearance configurations will be overwritten for the selected "
 "form(s)."
 msgstr ""
 
+#: admin/classes/class-admin.php:971
+msgid ""
+"<strong>Important Upgrade Notice:</strong> We've made some improvements to "
+"the way form submissions are handled with this update for better "
+"performance, and that can break <strong>only</strong> custom forms that may "
+"be using deprecated actions & filters. See <a href=\"%1$s\" "
+"target=\"_blank\">this chapter</a> in our Forminator API Docs for the "
+"complete list of those changes."
+msgstr ""
+
+#: admin/classes/class-admin.php:974
+msgid ""
+"Also, please ensure you have a backup of your site before updating, and "
+"check to ensure your custom forms are working as expected afterwards. If "
+"you face any issue or have any questions or doubt, don't hesitate to get in "
+"touch with our support heroes."
+msgstr ""
+
 #: admin/classes/thirdparty-importers/class-importer-cf7.php:94
 #: library/modules/custom-forms/admin/admin-loader.php:406
-#: library/modules/custom-forms/front/front-render.php:2728
+#: library/modules/custom-forms/front/front-render.php:2740
 msgid "Submitting..."
 msgstr ""
 
@@ -6979,7 +6996,7 @@ msgstr ""
 #: admin/locale.php:278 library/helpers/helper-core.php:421
 #: library/modules/custom-forms/form-templates/template-leads.php:117
 #: library/modules/quizzes/admin/admin-loader.php:596
-#: library/render/class-render-form.php:614
+#: library/render/class-render-form.php:620
 msgid "Submit"
 msgstr ""
 
@@ -9221,7 +9238,7 @@ msgstr ""
 #: admin/locale.php:798
 msgid ""
 "Deleting this field {%(name)s} will remove its value from the existing "
-"subsmissions as well."
+"submissions as well."
 msgstr ""
 
 #: admin/locale.php:799
@@ -9452,8 +9469,8 @@ msgid ""
 "header along with the progress indicator."
 msgstr ""
 
-#: admin/locale.php:852 library/modules/custom-forms/front/front-render.php:862
-#: library/modules/custom-forms/front/front-render.php:896
+#: admin/locale.php:852 library/modules/custom-forms/front/front-render.php:874
+#: library/modules/custom-forms/front/front-render.php:908
 #: library/modules/polls/admin/admin-loader.php:196
 #: library/modules/quizzes/admin/admin-loader.php:591
 msgid "Finish"
@@ -10491,7 +10508,7 @@ msgid "No Previous button"
 msgstr ""
 
 #: admin/locale.php:1099 library/helpers/helper-core.php:419
-#: library/modules/custom-forms/front/front-render.php:897
+#: library/modules/custom-forms/front/front-render.php:909
 msgid "Previous"
 msgstr ""
 
@@ -11476,7 +11493,7 @@ msgid ""
 "lead generation is enabled and set to show before the quiz."
 msgstr ""
 
-#: admin/locale.php:1332 library/render/class-render-form.php:627
+#: admin/locale.php:1332 library/render/class-render-form.php:633
 msgid "Start Quiz"
 msgstr ""
 
@@ -11741,7 +11758,7 @@ msgid "Link text"
 msgstr ""
 
 #: admin/locale.php:1394
-#: library/modules/custom-forms/front/front-render.php:3017
+#: library/modules/custom-forms/front/front-render.php:3030
 msgid "Skip and continue"
 msgstr ""
 
@@ -14872,60 +14889,60 @@ msgstr ""
 msgid "Try Pro for Free Today"
 msgstr ""
 
-#: library/abstracts/abstract-class-field.php:681
+#: library/abstracts/abstract-class-field.php:680
 msgid "Remove"
 msgstr ""
 
-#: library/abstracts/abstract-class-field.php:692
+#: library/abstracts/abstract-class-field.php:691
 msgid "Drag and Drop (or) %1$sChoose Files%2$s"
 msgstr ""
 
-#: library/abstracts/abstract-class-field.php:705
-#: library/abstracts/abstract-class-field.php:711
+#: library/abstracts/abstract-class-field.php:704
+#: library/abstracts/abstract-class-field.php:710
 msgid "Choose File"
 msgstr ""
 
-#: library/abstracts/abstract-class-field.php:728
+#: library/abstracts/abstract-class-field.php:727
 msgid "Delete uploaded file"
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:360
+#: library/abstracts/abstract-class-front-action.php:363
 msgid "Invalid form response"
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:362
+#: library/abstracts/abstract-class-front-action.php:365
 msgid "Invalid ID"
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:364
+#: library/abstracts/abstract-class-front-action.php:367
 msgid "Invalid nonce. Please refresh your browser."
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:580
-#: library/abstracts/abstract-class-front-action.php:588
-#: library/fields/upload.php:315 library/fields/upload.php:406
-#: library/fields/upload.php:415
+#: library/abstracts/abstract-class-front-action.php:583
+#: library/abstracts/abstract-class-front-action.php:591
+#: library/fields/upload.php:313 library/fields/upload.php:404
+#: library/fields/upload.php:413
 msgid "Error saving form. Uploaded file extension is not allowed."
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:599
-#: library/fields/upload.php:422
+#: library/abstracts/abstract-class-front-action.php:602
+#: library/fields/upload.php:420
 msgid "Error saving form. Failed to read uploaded file."
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:614
+#: library/abstracts/abstract-class-front-action.php:617
 #. translators: ...
 msgid "Error saving form. Uploaded file size exceeds %1$s upload limit. "
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:621
-#: library/abstracts/abstract-class-front-action.php:648
-#: library/fields/upload.php:469 library/fields/upload.php:536
-#: library/fields/upload.php:638 library/fields/upload.php:683
+#: library/abstracts/abstract-class-front-action.php:624
+#: library/abstracts/abstract-class-front-action.php:651
+#: library/fields/upload.php:467 library/fields/upload.php:534
+#: library/fields/upload.php:636 library/fields/upload.php:681
 msgid "Error saving form. Upload error. "
 msgstr ""
 
-#: library/abstracts/abstract-class-front-action.php:818
+#: library/abstracts/abstract-class-front-action.php:821
 msgid "Form entry saved"
 msgstr ""
 
@@ -15720,8 +15737,8 @@ msgstr ""
 msgid "Name is required."
 msgstr ""
 
-#: library/fields/name.php:80 library/fields/name.php:558
-#: library/fields/name.php:649
+#: library/fields/name.php:80 library/fields/name.php:566
+#: library/fields/name.php:657
 msgid "Prefix is required."
 msgstr ""
 
@@ -15737,19 +15754,19 @@ msgstr ""
 msgid "Last Name is required."
 msgstr ""
 
-#: library/fields/name.php:569 library/fields/name.php:659
+#: library/fields/name.php:577 library/fields/name.php:667
 msgid "This field is required. Please input your first name."
 msgstr ""
 
-#: library/fields/name.php:580 library/fields/name.php:669
+#: library/fields/name.php:588 library/fields/name.php:677
 msgid "This field is required. Please input your middle name."
 msgstr ""
 
-#: library/fields/name.php:591 library/fields/name.php:679
+#: library/fields/name.php:599 library/fields/name.php:687
 msgid "This field is required. Please input your last name."
 msgstr ""
 
-#: library/fields/name.php:600 library/fields/name.php:689
+#: library/fields/name.php:608 library/fields/name.php:697
 msgid "This field is required. Please input your name."
 msgstr ""
 
@@ -15771,41 +15788,41 @@ msgstr ""
 msgid "Enter your password"
 msgstr ""
 
-#: library/fields/password.php:379
+#: library/fields/password.php:391
 #: library/modules/custom-forms/form-templates/template-registration.php:74
 msgid "Your password is required."
 msgstr ""
 
-#: library/fields/password.php:390 library/fields/password.php:483
+#: library/fields/password.php:402 library/fields/password.php:495
 #: library/fields/text.php:329 library/fields/text.php:382
 #: library/fields/textarea.php:270 library/fields/textarea.php:323
 msgid "You exceeded the allowed amount of characters. Please check again."
 msgstr ""
 
-#: library/fields/password.php:398 library/fields/password.php:492
+#: library/fields/password.php:410 library/fields/password.php:504
 #: library/fields/text.php:337 library/fields/text.php:391
 #: library/fields/textarea.php:278 library/fields/textarea.php:332
 msgid "You exceeded the allowed amount of words. Please check again."
 msgstr ""
 
-#: library/fields/password.php:411 library/fields/password.php:504
+#: library/fields/password.php:423 library/fields/password.php:516
 #: library/modules/custom-forms/form-templates/template-registration.php:81
 msgid ""
 "Your password doesn't meet the minimum strength requirement. We recommend "
 "using 8 or more characters with a mix of letters, numbers & symbols."
 msgstr ""
 
-#: library/fields/password.php:426
+#: library/fields/password.php:438
 #: library/modules/custom-forms/form-templates/template-registration.php:84
 msgid "You must confirm your chosen password."
 msgstr ""
 
-#: library/fields/password.php:438 library/fields/password.php:515
+#: library/fields/password.php:450 library/fields/password.php:527
 #: library/modules/custom-forms/form-templates/template-registration.php:83
 msgid "Your passwords don't match."
 msgstr ""
 
-#: library/fields/password.php:473 library/fields/text.php:318
+#: library/fields/password.php:485 library/fields/text.php:318
 #: library/fields/text.php:372 library/fields/textarea.php:259
 #: library/fields/textarea.php:313
 msgid "This field is required. Please enter text."
@@ -15911,7 +15928,7 @@ msgid "Your Payment ID is empty, please reload the page and try again!"
 msgstr ""
 
 #: library/fields/stripe.php:505
-#: library/modules/custom-forms/front/front-action.php:714
+#: library/modules/custom-forms/front/front-action.php:724
 msgid "Payment amount should be larger than 0."
 msgstr ""
 
@@ -15999,11 +16016,11 @@ msgstr ""
 msgid "Please enter a valid minute."
 msgstr ""
 
-#: library/fields/upload.php:175 library/fields/upload.php:497
+#: library/fields/upload.php:175 library/fields/upload.php:495
 msgid "You can upload a maximum of %d files."
 msgstr ""
 
-#: library/fields/upload.php:186 library/fields/upload.php:460
+#: library/fields/upload.php:186 library/fields/upload.php:458
 #. translators: ...
 msgid "Maximum file size allowed is %1$s. "
 msgstr ""
@@ -16012,15 +16029,15 @@ msgstr ""
 msgid "file extension is not allowed."
 msgstr ""
 
-#: library/fields/upload.php:247 library/fields/upload.php:309
+#: library/fields/upload.php:245 library/fields/upload.php:307
 msgid "This field is required. Please upload a file."
 msgstr ""
 
-#: library/fields/upload.php:401
+#: library/fields/upload.php:399
 msgid ".%1$s file extension is not allowed."
 msgstr ""
 
-#: library/fields/upload.php:449
+#: library/fields/upload.php:447
 msgid "The attached file is empty and can't be uploaded."
 msgstr ""
 
@@ -16123,7 +16140,7 @@ msgid "An error occurred saving the vote. Please try again"
 msgstr ""
 
 #: library/helpers/helper-core.php:438
-#: library/modules/quizzes/front/front-render.php:748
+#: library/modules/quizzes/front/front-render.php:750
 msgid "View Results"
 msgstr ""
 
@@ -17770,15 +17787,15 @@ msgstr ""
 msgid "View Website"
 msgstr ""
 
-#: library/model/class-poll-form-model.php:400
+#: library/model/class-poll-form-model.php:401
 msgid "Voting is closed"
 msgstr ""
 
-#: library/model/class-poll-form-model.php:405
+#: library/model/class-poll-form-model.php:406
 msgid "Voting is paused, check again later"
 msgstr ""
 
-#: library/model/class-poll-form-model.php:410
+#: library/model/class-poll-form-model.php:411
 msgid "Voting has not been started yet, check again later"
 msgstr ""
 
@@ -18014,7 +18031,7 @@ msgstr ""
 #: library/modules/custom-forms/form-templates/template-post.php:84
 #: library/modules/custom-forms/form-templates/template-quote.php:151
 #: library/modules/custom-forms/form-templates/template-registration.php:110
-#: library/modules/custom-forms/front/front-action.php:1545
+#: library/modules/custom-forms/front/front-action.php:1550
 msgid "Error: Your form is not valid, please fix the errors!"
 msgstr ""
 
@@ -18078,7 +18095,7 @@ msgid ""
 msgstr ""
 
 #: library/modules/custom-forms/form-templates/template-login.php:198
-#: library/modules/custom-forms/front/front-user-login.php:269
+#: library/modules/custom-forms/front/front-user-login.php:258
 msgid "Remember Me"
 msgstr ""
 
@@ -18161,140 +18178,148 @@ msgid ""
 "us for further assistance."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:166
+#: library/modules/custom-forms/front/front-action.php:167
 msgid "Error: Stripe field doesn't exist in your form!"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:172
+#: library/modules/custom-forms/front/front-action.php:173
 msgid "Error: Form object is corrupted!"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:178
+#: library/modules/custom-forms/front/front-action.php:179
 msgid "Error: Your form ID doesn't exist!"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:279
+#: library/modules/custom-forms/front/front-action.php:280
 msgid "Whoops, the passcode you entered was incorrect or expired."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:767
+#: library/modules/custom-forms/front/front-action.php:777
 msgid ""
 "This payment require 3D Secure authentication! Please follow the "
 "instructions."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:795
-#: library/modules/custom-forms/front/front-action.php:919
+#: library/modules/custom-forms/front/front-action.php:805
+#: library/modules/custom-forms/front/front-action.php:929
 msgid "Payment failed, please try again!"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:879
-#: library/modules/custom-forms/front/front-render.php:2643
+#: library/modules/custom-forms/front/front-action.php:889
+#: library/modules/custom-forms/front/front-render.php:2655
 msgid "SSL required to submit this form, please check your URL."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:965
-#: library/modules/custom-forms/front/front-action.php:1051
+#: library/modules/custom-forms/front/front-action.php:975
+#: library/modules/custom-forms/front/front-action.php:1061
 msgid "At least one field must be filled out to submit the form."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:1454
+#: library/modules/custom-forms/front/front-action.php:1459
 msgid "form not found"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:2092
+#: library/modules/custom-forms/front/front-action.php:2097
 msgid "Failed to supply necessary data."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-action.php:2133
+#: library/modules/custom-forms/front/front-action.php:2138
 msgid "There was an error saving the post data. Please try again"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:191
+#: library/modules/custom-forms/front/front-action.php:2190
+msgid "Please try again."
+msgstr ""
+
+#: library/modules/custom-forms/front/front-action.php:2201
+msgid "Your code has been sent to your email."
+msgstr ""
+
+#: library/modules/custom-forms/front/front-render.php:194
 msgid "https://wordpress.org/"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:192
+#: library/modules/custom-forms/front/front-render.php:195
 msgid "Powered by WordPress"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:203
+#: library/modules/custom-forms/front/front-render.php:206
 msgid "Open the Google Authenticator app and enter the 6 digit passcode."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:209
+#: library/modules/custom-forms/front/front-render.php:214
 msgid "Authenticate to login"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:211
+#: library/modules/custom-forms/front/front-render.php:216
 msgid "The passcode was incorrect."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:226
-msgid "Lost your device? "
+#: library/modules/custom-forms/front/front-render.php:232
+msgid "Having problems? Try another way to log in"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:1085
+#: library/modules/custom-forms/front/front-render.php:1097
 msgid "Page "
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2103
+#: library/modules/custom-forms/front/front-render.php:2115
 msgid "Please do not fill in this field."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2222
+#: library/modules/custom-forms/front/front-render.php:2234
 msgid "Jan"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2223
+#: library/modules/custom-forms/front/front-render.php:2235
 msgid "Feb"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2224
+#: library/modules/custom-forms/front/front-render.php:2236
 msgid "Mar"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2225
+#: library/modules/custom-forms/front/front-render.php:2237
 msgid "Apr"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2227
+#: library/modules/custom-forms/front/front-render.php:2239
 msgid "Jun"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2228
+#: library/modules/custom-forms/front/front-render.php:2240
 msgid "Jul"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2229
+#: library/modules/custom-forms/front/front-render.php:2241
 msgid "Aug"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2230
+#: library/modules/custom-forms/front/front-render.php:2242
 msgid "Sep"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2231
+#: library/modules/custom-forms/front/front-render.php:2243
 msgid "Oct"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2232
+#: library/modules/custom-forms/front/front-render.php:2244
 msgid "Nov"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2233
+#: library/modules/custom-forms/front/front-render.php:2245
 msgid "Dec"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2645
+#: library/modules/custom-forms/front/front-render.php:2657
 msgid "PayPal amount must be greater than 0."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2646
+#: library/modules/custom-forms/front/front-render.php:2658
 msgid "Please correct the errors before submission."
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:2802
+#: library/modules/custom-forms/front/front-render.php:2815
 msgid "User is logged in."
 msgstr ""
 
@@ -18937,7 +18962,7 @@ msgstr ""
 
 #: library/modules/polls/admin/admin-page-entries.php:173
 #: library/modules/polls/front/front-action.php:245
-#: library/modules/polls/front/front-render.php:1092
+#: library/modules/polls/front/front-render.php:1095
 msgid "vote(s)"
 msgstr ""
 
@@ -18962,8 +18987,8 @@ msgid "Your vote has been saved"
 msgstr ""
 
 #: library/modules/polls/front/front-action.php:251
-#: library/modules/polls/front/front-render.php:358
-#: library/modules/polls/front/front-render.php:386
+#: library/modules/polls/front/front-render.php:361
+#: library/modules/polls/front/front-render.php:389
 msgid "View results"
 msgstr ""
 
@@ -18971,20 +18996,20 @@ msgstr ""
 msgid "Back To Poll"
 msgstr ""
 
-#: library/modules/polls/front/front-render.php:205
+#: library/modules/polls/front/front-render.php:208
 msgid "Your vote has been saved."
 msgstr ""
 
-#: library/modules/polls/front/front-render.php:221
+#: library/modules/polls/front/front-render.php:224
 msgid "You have already voted for this poll."
 msgstr ""
 
-#: library/modules/polls/front/front-render.php:351
+#: library/modules/polls/front/front-render.php:354
 msgid "No votes yet"
 msgstr ""
 
-#: library/modules/polls/front/front-render.php:892
-#: library/modules/polls/front/front-render.php:897
+#: library/modules/polls/front/front-render.php:895
+#: library/modules/polls/front/front-render.php:900
 msgid "Back to poll"
 msgstr ""
 
@@ -19578,23 +19603,23 @@ msgstr ""
 msgid " and"
 msgstr ""
 
-#: library/modules/quizzes/front/front-render.php:214
+#: library/modules/quizzes/front/front-render.php:216
 msgid "Page %s"
 msgstr ""
 
-#: library/modules/quizzes/front/front-render.php:223
+#: library/modules/quizzes/front/front-render.php:225
 msgid "Page %1$s of %2$s"
 msgstr ""
 
-#: library/modules/quizzes/front/front-render.php:596
+#: library/modules/quizzes/front/front-render.php:598
 msgid "Please, save the quiz in order to preview it."
 msgstr ""
 
-#: library/modules/quizzes/front/front-render.php:687
+#: library/modules/quizzes/front/front-render.php:689
 msgid "Ready to send"
 msgstr ""
 
-#: library/modules/quizzes/front/front-render.php:688
+#: library/modules/quizzes/front/front-render.php:690
 msgid "Calculating Result"
 msgstr ""
 
@@ -19671,11 +19696,11 @@ msgid ""
 "parties:"
 msgstr ""
 
-#: library/render/class-render-form.php:637
+#: library/render/class-render-form.php:643
 msgid "Module ID attribute is required!"
 msgstr ""
 
-#: library/render/class-render-form.php:647
+#: library/render/class-render-form.php:653
 msgid "Module ID not found!"
 msgstr ""
 
@@ -19732,7 +19757,7 @@ msgstr ""
 msgid "https://wpmudev.com"
 msgstr ""
 
-#: library/modules/custom-forms/front/front-render.php:233
+#: library/modules/custom-forms/front/front-render.php:245
 msgctxt "forminator"
 msgid "&larr; Back to %s"
 msgstr ""

@@ -56,7 +56,7 @@ class Forminator_Quiz_Page extends Forminator_Admin_Module_Edit_Page {
 	 * @return bool
 	 */
 	public static function has_leads( $model ) {
-		if ( isset( $model->settings['hasLeads'] ) && in_array( $model->settings['hasLeads'], array( true, 'true' ), true ) ) {
+		if ( isset( $model->settings['hasLeads'] ) && filter_var( $model->settings['hasLeads'], FILTER_VALIDATE_BOOLEAN ) ) {
 			return true;
 		}
 

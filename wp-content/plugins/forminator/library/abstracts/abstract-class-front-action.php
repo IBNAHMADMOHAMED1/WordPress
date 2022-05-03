@@ -77,6 +77,9 @@ abstract class Forminator_Front_Action {
 
 			add_action( 'wp_ajax_forminator_multiple_file_upload', array( $this, 'multiple_file_upload' ) );
 			add_action( 'wp_ajax_nopriv_forminator_multiple_file_upload', array( $this, 'multiple_file_upload' ) );
+
+			add_action( 'wp_ajax_forminator_2fa_fallback_email', array( $this, 'fallback_email' ) );
+			add_action( 'wp_ajax_nopriv_forminator_2fa_fallback_email', array( $this, 'fallback_email' ) );
 		}
 	}
 

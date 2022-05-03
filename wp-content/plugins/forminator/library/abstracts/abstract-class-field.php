@@ -232,7 +232,6 @@ abstract class Forminator_Field {
 	public static function get_description( $description, $get_id = '' ) {
 		$html         = '';
 		$allowed_html = array();
-
 		if ( ! empty( $description ) ) {
 			$allowed_html = apply_filters(
 				'forminator_field_description_allowed_html',
@@ -733,6 +732,11 @@ abstract class Forminator_Field {
 		}
 
 		$html .= '</div>';
+
+		// Check if description is not empty and append it.
+		if ( ! empty( $description ) ) {
+			$html .= self::get_description( $description, $id );
+		}
 
 		return apply_filters( 'forminator_field_create_file_upload', $html, $id, $name, $required );
 
@@ -1880,7 +1884,7 @@ abstract class Forminator_Field {
 		$precision  = self::get_property( 'precision', $field, $default_precision, 'num' );
 		$separator  = self::get_property( 'separators', $field, 'blank' );
 		$separators = self::forminator_separators( $separator, $field );
-		$data_value = str_replace( $separators['point'], '.', $number );
+		$data_value = (float) str_replace( $separators['point'], '.', $number );
 		$formatted  = number_format( $data_value, $precision, $separators['point'], $separators['separator'] );
 
 		if ( ! empty( $field['prefix'] ) || ! empty( $field['suffix'] ) ) {

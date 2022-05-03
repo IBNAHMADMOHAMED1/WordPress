@@ -153,7 +153,8 @@ class Forminator_CForm_Front_Action extends Forminator_Front_Action {
 									$pseudo_submitted_data[ $field_id ],
 									$submitted_data,
 									$field_array,
-									$pseudo_submitted_data
+									$pseudo_submitted_data,
+									$custom_form
 								);
 							}
 
@@ -284,6 +285,15 @@ class Forminator_CForm_Front_Action extends Forminator_Front_Action {
 		}
 		if ( isset( $login_user['authentication'] ) ) {
 			self::$response_attrs['authentication'] = $login_user['authentication'];
+		}
+		if ( isset( $login_user['auth_token'] ) ) {
+			self::$response_attrs['auth_token'] = $login_user['auth_token'];
+		}
+		if ( isset( $login_user['auth_method'] ) ) {
+			self::$response_attrs['auth_method'] = $login_user['auth_method'];
+		}
+        if ( isset( $login_user['auth_nav'] ) ) {
+			self::$response_attrs['auth_nav'] = $login_user['auth_nav'];
 		}
 		if ( isset( $login_user['lost_url'] ) ) {
 			self::$response_attrs['lost_url'] = $login_user['lost_url'];
@@ -458,7 +468,7 @@ class Forminator_CForm_Front_Action extends Forminator_Front_Action {
 								$label = $meta['label'];
 
 								if ( strpos( $value, '{' ) !== false && strpos( $value, '{upload' ) === false ) {
-									$value = forminator_replace_form_data( $value, $submitted_data );
+									$value = forminator_replace_form_data( $value, $submitted_data, $custom_form );
 									$value = forminator_replace_variables( $value, $form_id );
 								} elseif ( isset( $submitted_data[ $value ] ) ) {
 									$value = $submitted_data[ $value ];
@@ -1284,15 +1294,10 @@ class Forminator_CForm_Front_Action extends Forminator_Front_Action {
 	 * @param array  $submitted_data Submitted data.
 	 * @param array  $pseudo_submitted_data Pseudo submitted data.
 	 * @param object $module Module object.
-	 * @return array
+	 * @return array|false Return the relevant behavior or false if no behavior found.
 	 */
 	private static function get_relevant_behavior_options( $setting, $submitted_data, $pseudo_submitted_data, $module ) {
 		$behavior_array = Forminator_Form_Model::get_behavior_array( $module, $setting );
-		$the_first      = $behavior_array[0];
-		if ( 1 === count( $behavior_array ) ) {
-			// If we have only one Submittion behavior - return it.
-			return $the_first;
-		}
 
 		foreach ( $behavior_array as $behavior ) {
 			if ( empty( $behavior['conditions'] ) ) {
@@ -1318,8 +1323,8 @@ class Forminator_CForm_Front_Action extends Forminator_Front_Action {
 			}
 		}
 
-		// If all behaviors aren't matched - return the first one.
-		return $the_first;
+		// If all behaviors aren't matched - return false.
+		return false;
 	}
 
 	/**
@@ -2168,5 +2173,32 @@ class Forminator_CForm_Front_Action extends Forminator_Front_Action {
 
 		return $submitted_data;
 	} */
+    
+	/**
+     * Retrieve the backup code if lost phone.
+     *
+	 * @return void
+	 */
+	public function fallback_email() {
+		$defender_data    = forminator_defender_compatibility();
+		$two_fa_component = new $defender_data['two_fa_component']();
+		$post_data        = $this->get_post_data();
+		$token            = isset( $post_data['token'] ) ? $post_data['token'] : '';
+		$ret              = $two_fa_component->send_otp_to_email( $token );
+		if ( false === $ret ) {
+			wp_send_json_error( array(
+				'message' => __( 'Please try again.', 'forminator' ),
+			) );
+		}
 
+		if ( is_wp_error( $ret ) ) {
+			wp_send_json_error( array(
+				'message' => $ret->get_error_message(),
+			) );
+		}
+
+        wp_send_json_success( array(
+	        'message' => __( 'Your code has been sent to your email.', 'forminator' ),
+        ) );
+	}
 }

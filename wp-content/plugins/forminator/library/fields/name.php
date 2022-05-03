@@ -199,6 +199,10 @@ class Forminator_Name extends Forminator_Field {
 		$prefix   = self::get_property( 'prefix', $field, false );
 		$fname    = self::get_property( 'fname', $field, false );
 
+		// Return If prefix and first name is not enabled.
+		if ( empty( $prefix ) && empty( $fname ) ) {
+			return '';
+		}
 		/**
 		 * Backward compat, we dont have separate required configuration per fields
 		 * Fallback value from global `required`
@@ -332,6 +336,10 @@ class Forminator_Name extends Forminator_Field {
 		$mname    = self::get_property( 'mname', $field, false );
 		$lname    = self::get_property( 'lname', $field, false );
 
+		// Return If middle name and last name is not enabled.
+		if ( empty( $mname ) && empty( $lname ) ) {
+			return '';
+		}
 		/**
 		 * Backward compat, we dont have separate required configuration per fields
 		 * Fallback value from global `required`

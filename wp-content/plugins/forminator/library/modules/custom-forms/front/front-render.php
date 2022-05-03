@@ -110,6 +110,8 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 			return;
 		}
 
+		$this->generate_render_id( $id );
+
 		if ( $hide_form ) {
 			if ( $hidden_form_message ) {
 				echo wp_kses_post( $this->render_hidden_form_message( $hidden_form_message ) );
@@ -177,6 +179,7 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 		$label_id  = $module_id . '-label';
 		$input_id  = $module_id . '-input';
 		$notice_id = $module_id . '-notice';
+		$token_id = $module_id . '-token';
 
 		$form_type = isset( $this->model->settings['form-type'] ) ? $this->model->settings['form-type'] : '';
 
@@ -202,39 +205,48 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 			? $settings->app_text
 			: esc_html__( 'Open the Google Authenticator app and enter the 6 digit passcode.', 'forminator' );
 
+		$providers = $this->get_2FA_poviders();
+
 		$wrapper .= '<div class="forminator-authentication">';
 
-			$wrapper .= '<div role="dialog" id="' . $module_id . '" class="forminator-authentication-content" aria-modal="true" aria-labelledby="' . $title_id . '">';
+		$wrapper .= '<div role="dialog" id="' . $module_id . '" class="forminator-authentication-content" aria-modal="true" aria-labelledby="' . $title_id . '">';
 
-				$wrapper .= '<h1 id="' . $title_id . '"><a href="' . esc_url( $login_header_url ) . '" title="' . esc_attr( $login_header_title ) . '" style="background-image: url(' . $custom_graphic . ');">' . esc_html__( 'Authenticate to login', 'forminator' ) . '</a></h1>';
+		$wrapper .= '<h1 id="' . $title_id . '"><a href="' . esc_url( $login_header_url ) . '" title="' . esc_attr( $login_header_title ) . '" style="background-image: url(' . $custom_graphic . ');">' . esc_html__( 'Authenticate to login', 'forminator' ) . '</a></h1>';
 
-				$wrapper .= '<div role="alert" id="' . $notice_id . '" class="forminator-authentication-notice" data-error-message="' . esc_html__( 'The passcode was incorrect.', 'forminator' ) . '"></div>';
+		$wrapper .= '<div role="alert" id="' . $notice_id . '" class="forminator-authentication-notice" data-error-message="' . esc_html__( 'The passcode was incorrect.', 'forminator' ) . '"></div>';
 
-				$wrapper .= '<div class="forminator-authentication-box">';
+		foreach ( $providers as $slug => $provider ) {
+			$wrapper .= '<div class="forminator-authentication-box" id="forminator-2fa-' . $slug . '">';
 
-					$wrapper     .= '<p>';
-						$wrapper .= '<label for="' . $input_id . '" id="' . $label_id . '">' . $app_text . '</label>';
-						$wrapper .= '<input type="text" name="auth-code" value="" id="' . $input_id . '" aria-labelledby="' . $label_id . '" autocomplete="off" disabled />';
-					$wrapper     .= '</p>';
+			ob_start();
 
-					$wrapper     .= '<p class="forminator-authentication-button">';
-						$wrapper .= '<button role="button" class="authentication-button">' . esc_html__( 'Authenticate', 'forminator' ) . '</button>';
-					$wrapper     .= '</p>';
+			$provider->authentication_form();
 
-				$wrapper .= '</div>';
-
-				$wrapper .= '<p class="forminator-authentication-nav"><a id="lostPhone" class="lost-device-url" href="#">' . esc_html__( 'Lost your device? ', 'forminator' ) . '</a>';
-				$wrapper .= '<img class="def-ajaxloader" src="' . $defender_data['img_dir_url'] . 'spinner.svg"/>';
-				$wrapper .= '<strong class="notification"></strong>';
-				$wrapper .= '</p>';
-
-				global $interim_login;
-				if ( ! $interim_login ) {
-					$link_back_to = sprintf( _x( '&larr; Back to %s', 'forminator' ), get_bloginfo( 'title', 'display' ) );
-					$wrapper .= '<p class="forminator-authentication-backtolog"><a class="auth-back" href="#">' . $link_back_to . '</a></p>';
-				}
+			$wrapper .= ob_get_clean();
 
 			$wrapper .= '</div>';
+		}
+		$wrapper .='<input type="hidden" class="forminator-auth-method" name="auth_method" value="' . esc_attr( $slug ) . '" id="' . $input_id . '" disabled />';
+		$wrapper .='<input type="hidden" class="forminator-auth-token" name="auth_token" id="' . $token_id . '" />';
+        $wrapper .= '<div class="forminator-wrap-nav">';
+		$wrapper .= esc_html__( 'Having problems? Try another way to log in', 'forminator' );
+		$wrapper .= '<ul class="forminator-authentication-nav">';
+		foreach ( $providers as $slug => $provider ) {
+			$wrapper .= '<li class="forminator-2fa-link" id="forminator-2fa-link-' . esc_attr( $slug ) . '" data-slug="' . esc_attr( $slug ) . '">';
+			$wrapper .= $provider->get_login_label();
+			$wrapper .= '</li>';
+		}
+		$wrapper .= '</ul>';
+		$wrapper .= '<img class="def-ajaxloader" src="' . $defender_data['img_dir_url'] . 'spinner.svg"/>';
+		$wrapper .= '<strong class="notification"></strong>';
+        $wrapper .= '</div>';
+		global $interim_login;
+		if ( ! $interim_login ) {
+			$link_back_to = sprintf( _x( '&larr; Back to %s', 'forminator' ), get_bloginfo( 'title', 'display' ) );
+			$wrapper .= '<p class="forminator-authentication-backtolog"><a class="auth-back" href="#">' . $link_back_to . '</a></p>';
+		}
+
+		$wrapper .= '</div>';
 
 		$wrapper .= '</div>';
 
@@ -1049,7 +1061,7 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 				=
 				sprintf(
 					'<button class="' . $class
-						 . '" style="display: none;" disabled><span class="forminator-button--mask" aria-label="hidden"></span><span class="forminator-button--text">%s</span></button>',
+					. '" style="display: none;" disabled><span class="forminator-button--mask" aria-label="hidden"></span><span class="forminator-button--text">%s</span></button>',
 					$button
 				);
 		}
@@ -1735,7 +1747,7 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 	 */
 	public function compare_element_id_with_precision_elements( $element_id ) {
 		return false !== strpos( $element_id, 'calculation-' )
-			|| false !== strpos( $element_id, 'currency-' );
+		       || false !== strpos( $element_id, 'currency-' );
 	}
 
 	/**
@@ -2316,23 +2328,23 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 	 */
 	public function forminator_render_front_scripts() {
 		?>
-		<script type="text/javascript">
-			jQuery(document).ready(function () {
-				window.Forminator_Cform_Paginations = window.Forminator_Cform_Paginations || [];
+        <script type="text/javascript">
+            jQuery(document).ready(function () {
+                window.Forminator_Cform_Paginations = window.Forminator_Cform_Paginations || [];
 				<?php
 				if ( ! empty( $this->forms_properties ) ) {
-					foreach ( $this->forms_properties as $form_properties ) {
-						$options           = $this->get_front_init_options( $form_properties );
-						$pagination_config = $options['pagination_config'];
-						unset( $options['pagination_config'] );
-						?>
-				window.Forminator_Cform_Paginations[<?php echo esc_attr( $form_properties['id'] ); ?>] =
-						<?php echo wp_json_encode( $pagination_config ); ?>;
+				foreach ( $this->forms_properties as $form_properties ) {
+				$options           = $this->get_front_init_options( $form_properties );
+				$pagination_config = $options['pagination_config'];
+				unset( $options['pagination_config'] );
+				?>
+                window.Forminator_Cform_Paginations[<?php echo esc_attr( $form_properties['id'] ); ?>] =
+				<?php echo wp_json_encode( $pagination_config ); ?>;
 
-				var runForminatorFront = function () {
-					jQuery('#forminator-module-<?php echo esc_attr( $form_properties['id'] ); ?>[data-forminator-render="<?php echo esc_attr( $form_properties['render_id'] ); ?>"]')
-						.forminatorFront(<?php echo wp_json_encode( $options ); ?>);
-				}
+                var runForminatorFront = function () {
+                    jQuery('#forminator-module-<?php echo esc_attr( $form_properties['id'] ); ?>[data-forminator-render="<?php echo esc_attr( $form_properties['render_id'] ); ?>"]')
+                        .forminatorFront(<?php echo wp_json_encode( $options ); ?>);
+                }
 
 				runForminatorFront();
 
@@ -2784,6 +2796,7 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 	 *
 	 * @param bool $hide
 	 * @param bool $is_preview
+	 * @param int $render_id
 	 *
 	 * @return false|string
 	 */
@@ -2793,13 +2806,13 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 		// Hide registration or login form for logged-in users if enabled.
 		$hide_option = 'hide-' . $form_type . '-form';
 		if ( ! $is_preview
-				&& in_array( $form_type, array( 'login', 'registration' ), true ) && is_user_logged_in()
-				&& isset( $form_settings[ $hide_option ] ) && '1' === $form_settings[ $hide_option ] ) {
+		     && in_array( $form_type, array( 'login', 'registration' ), true ) && is_user_logged_in()
+		     && isset( $form_settings[ $hide_option ] ) && '1' === $form_settings[ $hide_option ] ) {
 
 			$hidden_message_option = 'hidden-' . $form_type . '-form-message';
 			$html                  = isset( $form_settings[ $hidden_message_option ] )
-					? $form_settings[ $hidden_message_option ]
-					: __( 'User is logged in.', 'forminator' );
+				? $form_settings[ $hidden_message_option ]
+				: __( 'User is logged in.', 'forminator' );
 
 			return $html;
 		}
@@ -2814,14 +2827,14 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 		} else {
 			$form_settings = $this->get_form_settings();
 			?>
-			<div class="forminator-custom-form">
-				 <?php
-					if ( isset( $form_settings['expire_message'] ) && '' !== $form_settings['expire_message'] ) {
-						$message = $form_settings['expire_message'];
-						?>
-					<label class="forminator-label--info"><span><?php echo esc_html( $message ); ?></span></label>
-					<?php } ?>
-			</div>
+            <div class="forminator-custom-form">
+				<?php
+				if ( isset( $form_settings['expire_message'] ) && '' !== $form_settings['expire_message'] ) {
+					$message = $form_settings['expire_message'];
+					?>
+                    <label class="forminator-label--info"><span><?php echo esc_html( $message ); ?></span></label>
+				<?php } ?>
+            </div>
 			<?php
 		}
 
@@ -2996,7 +3009,7 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 		if ( ! empty( $fields ) ) {
 			foreach ( $fields as $field ) {
 				if ( isset( $field['type'] ) && 'upload' === $field['type'] &&
-					 isset( $field['file-type'] ) && 'multiple' === $field['file-type']
+				     isset( $field['file-type'] ) && 'multiple' === $field['file-type']
 				) {
 					return true;
 				}
@@ -3054,5 +3067,18 @@ class Forminator_CForm_Front extends Forminator_Render_Form {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Get 2FA provider
+	 *
+	 * @return array[]
+	 */
+	public function get_2FA_poviders() {
+		$defender_data    = defender_backward_compatibility();
+		$two_fa_component = new $defender_data['two_fa_component']();
+		$providers = $two_fa_component->get_providers();
+
+		return $providers;
 	}
 }

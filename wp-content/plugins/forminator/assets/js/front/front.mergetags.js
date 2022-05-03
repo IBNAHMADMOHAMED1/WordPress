@@ -206,11 +206,29 @@
 				}
 			} else if (this.field_is_upload($element)) {
 				value = $element.val().split('\\').pop();
+			} else if (this.field_has_inputMask($element)) {
+				$element.inputmask({'autoUnmask' : false});
+				value = $element.val();
+				$element.inputmask({'autoUnmask' : true});
 			} else {
 				value = $element.val();
 			}
 
 			return value;
+		},
+
+		field_has_inputMask: function ( $element ) {
+			var hasMask = false;
+
+			$element.each(function () {
+				if ( undefined !== $( this ).attr( 'data-inputmask' ) ) {
+					hasMask = true;
+					//break
+					return false;
+				}
+			});
+
+			return hasMask;
 		},
 
 		field_is_radio: function ($element) {

@@ -232,13 +232,26 @@
 									var moduleId  = self.$el.attr( 'id' ),
 										authId    = moduleId + '-authentication',
 										authField = $( '#' + authId ),
-										authInput = $( '#' + authId + '-input' )
+										authInput = $( '#' + authId + '-input' ),
+										authToken = $( '#' + authId + '-token' )
 									;
 									authField.find('.forminator-authentication-notice').removeClass('error');
 									authField.find('.lost-device-url').attr('href', data.data.lost_url);
 
 									if( 'show' === data.data.authentication ) {
-										authInput.removeAttr( 'disabled' );
+										self.$el.find('.forminator-authentication-nav').html('').append( data.data.auth_nav );
+										self.$el.find('.forminator-authentication-box').hide();
+										if ( 'fallback-email' === data.data.auth_method ) {
+											self.$el.find('.wpdef-2fa-email-resend input').click();
+											self.$el.find('.notification').hide();
+										}
+										self.$el.find( '#forminator-2fa-' + data.data.auth_method ).show();
+										self.$el.find('.forminator-authentication-box input').attr( 'disabled', true );
+										self.$el.find( '#forminator-2fa-' + data.data.auth_method + ' input' ).attr( 'disabled', false );
+										self.$el.find('.forminator-2fa-link').show();
+										self.$el.find('#forminator-2fa-link-' + data.data.auth_method).hide();
+										authInput.removeAttr( 'disabled' ).val(data.data.auth_method);
+										authToken.val( data.data.auth_token );
 										FUI.openAuthentication( authId, moduleId, authId + '-input' );
 									}
 									if ( 'invalid' === data.data.authentication ) {

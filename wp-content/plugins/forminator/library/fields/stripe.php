@@ -422,7 +422,7 @@ class Forminator_Stripe extends Forminator_Field {
 	 * @param $field
 	 * @param $pseudo_submitted_data
 	 */
-	public function update_paymentIntent( $id, $amount, $submitted_data, $field, $pseudo_submitted_data ) {
+	public function update_paymentIntent( $id, $amount, $submitted_data, $field, $pseudo_submitted_data, Forminator_Form_Model $custom_form = null ) {
 		$mode     = self::get_property( 'mode', $field, 'test' );
 		$currency = self::get_property( 'currency', $field, $this->get_default_currency() );
 
@@ -476,7 +476,7 @@ class Forminator_Stripe extends Forminator_Field {
 
 		if ( ! empty( $stored_metadata ) ) {
 			foreach ( (array) $stored_metadata as $key => $meta ) {
-				$metadata[ $key ] = forminator_replace_form_data( '{' . $meta . '}', $submitted_data_combined );
+				$metadata[ $key ] = forminator_replace_form_data( '{' . $meta . '}', $submitted_data_combined, $custom_form );
 			}
 		}
 

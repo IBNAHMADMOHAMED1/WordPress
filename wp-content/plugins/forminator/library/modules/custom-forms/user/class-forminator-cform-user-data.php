@@ -141,7 +141,7 @@ class Forminator_CForm_User_Data {
 			global $wpdb;
 			$url = add_query_arg(
 				array(
-					'page' => 'forminator_activation',
+					'page' => 'account_activation',
 					'key'  => $key,
 				),
 				home_url( '/' )
@@ -183,7 +183,7 @@ class Forminator_CForm_User_Data {
 	public function admin_approve_user_by_link() {
 		$activation_key = Forminator_Core::sanitize_text_field( 'key' );
 		$page           = Forminator_Core::sanitize_text_field( 'page' );
-		if ( 'forminator_activation' === $page && $activation_key ) {
+		if ( ( 'account_activation' === $page || 'forminator_activation' === $page ) && $activation_key ) {
 			require_once __DIR__ . '/class-forminator-cform-user-signups.php';
 
 			$userdata = Forminator_CForm_User_Signups::activate_signup( $activation_key, false );

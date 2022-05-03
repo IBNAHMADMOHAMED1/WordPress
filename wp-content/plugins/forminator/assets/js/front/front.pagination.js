@@ -164,7 +164,9 @@
 		},
 		render_footer_navigation: function( form_id ) {
 			var footer_html = '',
-				paypal_field = '';
+				paypal_field = '',
+				footer_align = ( this.custom_label['has-paypal'] === true ) ? ' style="align-items: flex-start;"' : '';
+
 			if ( this.custom_label[ this.element ] && this.custom_label[ 'pagination-labels' ] === 'custom' ){
 				this.prev_button_txt = this.custom_label[ this.element ][ 'prev-text' ] !== '' ? this.custom_label[ this.element ][ 'prev-text' ] : this.prev_button;
 				this.next_button_txt = this.custom_label[ this.element ][ 'next-text' ] !== '' ? this.custom_label[ this.element ][ 'next-text' ] : this.next_button;
@@ -174,7 +176,7 @@
 			}
 
 			if ( this.$el.hasClass('forminator-design--material') ) {
-				footer_html = '<div class="forminator-pagination-footer" style="display: flex;">' +
+				footer_html = '<div class="forminator-pagination-footer"' + footer_align + '>' +
 					'<button class="forminator-button forminator-button-back"><span class="forminator-button--mask" aria-label="hidden"></span><span class="forminator-button--text">' + this.prev_button_txt + '</span></button>' +
 					'<button class="forminator-button forminator-button-next"><span class="forminator-button--mask" aria-label="hidden"></span><span class="forminator-button--text">' + this.next_button_txt + '</span></button>';
 				if( this.custom_label[ 'has-paypal' ] === true ) {
@@ -185,7 +187,7 @@
 				this.$el.append( footer_html );
 
 			} else {
-				footer_html = '<div class="forminator-pagination-footer" style="display: flex;">' +
+				footer_html = '<div class="forminator-pagination-footer"' + footer_align + '>' +
 					'<button class="forminator-button forminator-button-back">' + this.prev_button_txt + '</button>' +
 					'<button class="forminator-button forminator-button-next">' + this.next_button_txt + '</button>';
 				if( this.custom_label['has-paypal'] === true ) {

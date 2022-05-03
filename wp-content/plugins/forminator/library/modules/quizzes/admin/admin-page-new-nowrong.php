@@ -46,7 +46,7 @@ class Forminator_Quiz_New_NoWrong extends Forminator_Admin_Page {
 			true
 		);
 
-		wp_enqueue_script( 'forminator-jquery-ui-touch', forminator_plugin_url() . 'assets/js/library/jquery.ui.touch-punch.min.js', array( 'jquery' ), FORMINATOR_VERSION, true );
+		wp_enqueue_script( 'forminator-jquery-ui-touch', forminator_plugin_url() . 'assets/js/library/jquery.ui.touch-punch.min.js', array( 'jquery-ui-core', 'jquery-ui-mouse' ), FORMINATOR_VERSION, true );
 		forminator_common_admin_enqueue_scripts( true );
 	}
 }

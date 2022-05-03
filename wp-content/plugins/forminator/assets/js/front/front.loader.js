@@ -52,7 +52,7 @@
 	// Avoid Plugin.prototype conflicts
 	$.extend(ForminatorLoader.prototype, {
 		init: function () {
-			var param = (document.location.search).replace(/(^\?)/, '').split("&").map(function (n) {
+			var param = (decodeURI(document.location.search)).replace(/(^\?)/, '').split("&").map(function (n) {
 				return n = n.split("="), this[n[0]] = n[1], this
 			}.bind({}))[0];
 

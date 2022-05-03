@@ -51,7 +51,7 @@ class Forminator_Form_Entry_Model {
 	public $date_created;
 
 	/**
-	 * Time created in sql format D M Y @ H:i A
+	 * Time created in sql format M D Y @ g:i A
 	 *
 	 * @var string
 	 */
@@ -159,7 +159,7 @@ class Forminator_Form_Entry_Model {
 				$this->is_spam          = $entry->is_spam;
 				$this->date_created_sql = $entry->date_created;
 				$this->date_created     = date_i18n( 'j M Y', strtotime( $entry->date_created ) );
-				$this->time_created     = date_i18n( 'j M Y @ H:i A', strtotime( $entry->date_created ) );
+				$this->time_created     = date_i18n( 'M j, Y @ g:i A', strtotime( $entry->date_created ) );
 				$this->load_meta();
 				wp_cache_set( $entry_id, $this, $cache_key );
 			}

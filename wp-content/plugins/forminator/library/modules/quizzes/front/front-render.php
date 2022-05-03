@@ -86,6 +86,8 @@ class Forminator_QForm_Front extends Forminator_Render_Form {
 
 		if ( $this->is_displayable( $is_preview ) ) {
 
+			$this->generate_render_id( $id );
+
 			echo $this->get_html( $hide, $is_preview ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 			if ( is_admin() || $is_preview ) {

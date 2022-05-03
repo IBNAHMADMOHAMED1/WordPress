@@ -495,11 +495,11 @@
 
 					var index = self.form.find('#' + file_id ).index(),
 						fileContainer = $( deleteButton ).closest( 'li#' + file_id ),
-						uploaded_arr = self.get_uplaoded_files();
+						uploaded_arr = self.get_uplaoded_files(),
+						uploaded_value = self.form.find( '.forminator-multifile-hidden' );
 
 					if ( uploaded_arr && 'ajax' === method ) {
 
-						var uploaded_value = self.form.find( '.forminator-multifile-hidden' );
 						if( 'undefined' !== typeof ajax_request[ index ] ) {
 							ajax_request[ index ].abort();
 							ajax_request.splice( index, 1 );
@@ -520,8 +520,8 @@
 					$( fileContainer ).remove();
 				}
 				var fileInput = self.form.find( '.forminator-field-'+ self.element + '-' + self.form_id );
+				var liList = self.form.find('.upload-container-' + element_id + ' li' );
 				if( 'undefined' !== typeof fileInput.data('limit') ) {
-					var liList = self.form.find('.upload-container-' + element_id + ' li' );
 					$.each( liList,function( index ) {
 						if( fileInput.data('limit') > index && $(this).hasClass('forminator-upload-limit_error') ) {
 							var fileID = $(this).attr('id'),
@@ -534,6 +534,11 @@
 						}
 					});
 					uploaded_value.val( JSON.stringify( uploaded_arr ) );
+				}
+
+				// empty file input value if no files left
+				if ( liList.length === 0 ) {
+					fileInput.val('');
 				}
 			})
 		},

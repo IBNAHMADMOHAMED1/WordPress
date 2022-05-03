@@ -1,13 +1,13 @@
 === Forminator - Contact Form, Payment Form & Custom Form Builder ===
 Plugin Name: Forminator - Contact Form, Payment Form & Custom Form Builder
-Version: 1.15.12
+Version: 1.15.13
 Author: WPMU DEV
 Author URI: https://wpmudev.com/
 Contributors: WPMUDEV
 Tags: forms, contact form, wordpress form plugin, payment form, custom form, form builder, paypal form wordpress, form maker, quiz, quiz builder, order form, stripe payments, paypal payments, stripe form, paypal form
 Requires at least: 5.2
 Tested up to: 5.9
-Stable tag: 1.15.12
+Stable tag: 1.15.13
 Requires PHP: 5.6.20
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -210,6 +210,34 @@ Find out all you need to know by checking out our API documentation [here](https
 9. Allow simple drag and drop multi-file uploads for users.
 
 == Changelog ==
+
+= 1.15.13 =
+
+- Improvement: 2FA functionality backward compatibility with Defender
+- Improvement: Show Localized numbers in the HTML field
+- Improvement: Replace Forminator registration form activation URLs with a more generic URL
+- Fix: Multiple polls getting closed on the same page
+- Fix: Select field's bulk edit affects visibility rules
+- Fix: Multi upload does not remove the number of files when selecting none style
+- Fix: Visibility condition not working for Address field
+- Fix: Receipt is not receiving in email for stripe payment
+- Fix: Phone number field CSS issue inside Hustle
+- Fix: When two User Registration forms are added on the same page forms can't be submitted
+- Fix: Conflict with WP Forms plugin
+- Fix: Select field is not working when the form is placed on a slide-in
+- Fix: Vietnamese Phone Number Format
+- Fix: Optional password setting does not work when minimum strength is not set to 'None'
+- Fix: Pre-populate feature doesn't add spaces when AJAX is disabled
+- Fix: Creating a new Quiz and Poll is not working with PHP 7.3
+- Fix: The pagination button doesn't have the same heights on mobile
+- Fix: Featured Image description not used in the frontend
+- Fix: Console error when you remove a file to be uploaded
+- Fix: Conditions logic breaks after submission
+- Fix: Submission causing a 500 error
+- Fix: PHP Warning when submitting a form with a number field
+- Fix: 3rd secure payment is not working
+- Fix: Limit is not working when Rich Text enabled for Textarea
+- Fix: Quiz Leads "Coming Soon" is missing for Duplicate and Export
 
 = 1.15.12 =
 

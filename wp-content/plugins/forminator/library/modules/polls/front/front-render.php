@@ -85,6 +85,8 @@ class Forminator_Poll_Front extends Forminator_Render_Form {
 
 		if ( $this->is_displayable( $is_preview ) ) {
 
+			$this->generate_render_id( $id );
+
 			echo $this->get_html( $hide, $is_preview ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 			if ( is_admin() ) {
@@ -169,7 +171,8 @@ class Forminator_Poll_Front extends Forminator_Render_Form {
 		$message_wrap = '';
 		$status_info = $this->model->opening_status();
 		if ( 'open' !== $status_info['status'] ) {
-			$html .= '<div class="forminator-response-message forminator-error forminator-show">';
+			$html .= '<div class="forminator-response-message forminator-error
+ forminator-show">';
 			$html .= '<p>' . esc_html( $status_info['msg'] ) . '</p>';
 			$html .= '</div>';
 		}

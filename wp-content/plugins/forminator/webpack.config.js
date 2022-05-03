@@ -1,6 +1,6 @@
 var path    = require( 'path' ),
 	webpack = require( 'webpack' )
-	;
+;
 
 // As Webpack only understands JS, we'll use this plugin to extract the CSS to a file
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
@@ -103,7 +103,7 @@ var jsConfig = Object.assign( {}, {
 		path: path.resolve( __dirname, config.output.jsDirectory )
 	},
 	module: {
-        rules: [{
+		rules: [{
 			test: /\.js$/,
 			exclude: /(node_modules|bower_components)/,
 			use: {

@@ -223,7 +223,7 @@ class Forminator_CForm_User_Signups {
 	public static function modify_signup_user_notification_message( $message, $user, $user_email, $key ) {
 		$url = add_query_arg(
 			array(
-				'page' => 'forminator_activation',
+				'page' => 'account_activation',
 				'key'  => $key,
 			),
 			home_url( '/' )
@@ -235,7 +235,7 @@ class Forminator_CForm_User_Signups {
 	public static function modify_signup_blog_notification_message( $message, $domain, $path, $title, $user, $user_email, $key ) {
 		$url = add_query_arg(
 			array(
-				'page' => 'forminator_activation',
+				'page' => 'account_activation',
 				'key'  => $key,
 			),
 			home_url( '/' )

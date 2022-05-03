@@ -190,15 +190,21 @@ abstract class Forminator_Render_Form {
 	 * Generate render_id for current form
 	 * represented as integer, start from 0
 	 *
-	 * @param $id
+	 * @param int $id Module id.
+	 * @param ?int $forced_render_id Optional. The render id to force for module id.
 	 */
-	public function generate_render_id( $id ) {
+	public function generate_render_id( $id, $forced_render_id = null ) {
 		// set render_id for mapping Front End with its form.
-		if ( ! isset( self::$render_ids[ $id ] ) ) {
-			self::$render_ids[ $id ] = 0;
-		} else {
-			self::$render_ids[ $id ] ++;
-		}
+        if ( ! is_numeric( $forced_render_id ) ) {
+	        if ( ! isset( self::$render_ids[ $id ] ) ) {
+		        self::$render_ids[ $id ] = 0;
+	        } else {
+		        self::$render_ids[ $id ] ++;
+	        }
+        } else {
+	        self::$render_ids[ $id ] = intval( $forced_render_id );
+        }
+
 		// Add other plugin classes here that causes additional render_id.
 		if ( self::$render_ids[ $id ] > 0 && class_exists( 'DiviOverlaysCore' ) ) {
 			self::$render_ids[ $id ] --;
@@ -681,7 +687,7 @@ abstract class Forminator_Render_Form {
 		$class = 'Forminator_' . forminator_get_prefix( static::$module_slug, '', true ) . '_Model';
 
 		if ( $this->model instanceof $class && ( $is_preview || $class::STATUS_PUBLISH === $status ) ) {
-			$this->generate_render_id( $id );
+			//$this->generate_render_id( $id );
 
 			return true;
 		} else {
@@ -1315,7 +1321,7 @@ abstract class Forminator_Render_Form {
 			wp_send_json_error( new WP_Error( 'invalid_code' ) );
 		}
 
-		$id                = Forminator_Core::sanitize_text_field( 'id', 0 );
+		$id                = filter_input( INPUT_POST, 'id', FILTER_VALIDATE_INT );
 		$type              = Forminator_Core::sanitize_text_field( 'type' );
 		$preview_data      = isset( $_POST['preview_data'] ) ? Forminator_Core::sanitize_array( $_POST['preview_data'], 'preview_data' ) : array();
 		$last_submit_data  = filter_input( INPUT_POST, 'last_submit_data', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY );
@@ -1325,7 +1331,7 @@ abstract class Forminator_Render_Form {
 		$has_lead          = Forminator_Core::sanitize_text_field( 'has_lead' );
 		$leads_id          = filter_input( INPUT_POST, 'leads_id', FILTER_VALIDATE_INT );
 		$lead_preview_data = filter_input( INPUT_POST, 'lead_preview_data', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY );
-		$render_id         = Forminator_Core::sanitize_text_field( 'render_id', 0 );
+		$render_id         = filter_input( INPUT_POST, 'render_id', FILTER_VALIDATE_INT );
 
 		if ( empty( $id ) && ! $is_preview ) {
 			wp_send_json_error( new WP_Error( 'invalid_id' ) );
@@ -1340,6 +1346,9 @@ abstract class Forminator_Render_Form {
 				$preview_data = json_decode( $preview_data, true );
 			}
 		}
+
+		// Force set the render id as each ajax request requires specific render_id.
+		self::get_instance()->generate_render_id( $id, $render_id );
 
 		$view = null;
 		if ( 'forminator_forms' === $type ) {
@@ -1412,11 +1421,13 @@ abstract class Forminator_Render_Form {
 	 * @param bool  $hide
 	 * @param array $last_submit_data
 	 * @param array $extra extra config to display.
-	 * @param array $quiz_id
+	 * @param int $quiz_id
+	 * @param int $render_id Optional. The render id to force for module.
 	 *
 	 * @return array
 	 */
-	public function ajax_display( $id, $is_preview = false, $data = false, $hide = true, $last_submit_data = array(), $extra = array(), $quiz_id = 0 ) {
+	public function ajax_display( $id, $is_preview = false, $data = false, $hide = true, $last_submit_data = array(),
+        $extra = array(), $quiz_id = 0, $render_id = 0 ) {
 		// The first module and preview for it.
 		$id = isset( $id ) ? intval( $id ) : null;
 
@@ -1495,7 +1506,7 @@ abstract class Forminator_Render_Form {
 		}
 
 		$response['is_ajax_load'] = true;
-		$response['html']         = $this->get_html( $hide, $is_preview );
+		$response['html']         = $this->get_html( $hide, $is_preview, $render_id );
 
 		$properties = isset( $this->forms_properties[0] ) ? $this->forms_properties[0] : array();
 
@@ -1660,5 +1671,35 @@ abstract class Forminator_Render_Form {
 		}
 
 		return $nonce;
+	}
+
+	/**
+     * Returns the render id of a given module.
+     *
+     * @since 1.15.12
+     *
+	 * @param ?int $module_id Optional. Module id.
+	 *
+	 * @return int The render id.
+	 */
+    public static function get_render_id( $module_id = null ) {
+        if ( is_null( $module_id ) ) {
+            return 0;
+        }
+
+	    $module_id = intval( $module_id );
+
+        return isset( self::$render_ids[ $module_id ] ) ? self::$render_ids[ $module_id ] : 0;
+    }
+
+	/**
+	 * Returns all render ids of runtime.
+	 *
+	 * @since 1.15.12
+	 *
+	 * @return array A list which contains all render ids.
+	 */
+	public static function get_render_ids() {
+		return self::$render_ids;
 	}
 }

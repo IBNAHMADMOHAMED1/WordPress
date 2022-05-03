@@ -418,6 +418,9 @@ class Forminator_Admin_AJAX {
 				// Save data.
 				$form_model->save();
 
+				// Regenerare module css file.
+				Forminator_Render_Form::regenerate_css_file( $form_id );
+
 				$count++;
 			}
 		}

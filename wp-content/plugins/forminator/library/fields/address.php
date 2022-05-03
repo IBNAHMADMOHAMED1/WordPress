@@ -197,7 +197,7 @@ class Forminator_Address extends Forminator_Field {
 
 			$html .= '<div class="forminator-row">';
 
-				$html .= '<div class="forminator-col">';
+				$html .= sprintf( '<div id="%s" class="forminator-col">', $address['name'] );
 
 					$html .= '<div class="forminator-field">';
 
@@ -274,7 +274,7 @@ class Forminator_Address extends Forminator_Field {
 
 				$city_data = $this->replace_from_prefill( $field, $city_data, 'address_city' );
 
-				$html .= sprintf( '<div class="forminator-col forminator-col-%s">', $cols );
+				$html .= sprintf( '<div id="%s" class="forminator-col forminator-col-%s">', $city_data['name'], $cols );
 
 					$html .= '<div class="forminator-field">';
 
@@ -306,7 +306,7 @@ class Forminator_Address extends Forminator_Field {
 
 				$state_data = $this->replace_from_prefill( $field, $state_data, 'address_state' );
 
-				$html .= sprintf( '<div class="forminator-col forminator-col-%s">', $cols );
+				$html .= sprintf( '<div id="%s" class="forminator-col forminator-col-%s">', $state_data['name'], $cols );
 
 					$html .= '<div class="forminator-field">';
 
@@ -382,7 +382,7 @@ class Forminator_Address extends Forminator_Field {
 
 				$zip_data = $this->replace_from_prefill( $field, $zip_data, 'address_zip' );
 
-				$html .= sprintf( '<div class="forminator-col forminator-col-%s">', $cols );
+				$html .= sprintf( '<div id="%s" class="forminator-col forminator-col-%s">', $zip_data['name'], $cols );
 
 					$html .= '<div class="forminator-field">';
 
@@ -448,7 +448,7 @@ class Forminator_Address extends Forminator_Field {
 				 */
 				$countries = apply_filters( 'forminator_countries_field', $new_countries );
 
-				$html .= sprintf( '<div class="forminator-col forminator-col-%s">', $cols );
+				$html .= sprintf( '<div id="%s" class="forminator-col forminator-col-%s">', $country_data['name'], $cols );
 
 					$html .= '<div class="forminator-field">';
 

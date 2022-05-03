@@ -119,7 +119,7 @@
 				this._stripe.confirmCardPayment(secret, {
 					payment_method: {
 						card: self._cardElement,
-						billing_details: self.getBillingData(),
+						...self.getBillingData(),
 					},
 				})
 				.then(function(result) {

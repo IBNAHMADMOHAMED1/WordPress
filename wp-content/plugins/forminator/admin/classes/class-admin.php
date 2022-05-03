@@ -28,7 +28,8 @@ class Forminator_Admin {
 		add_action( 'admin_notices', array( $this, 'show_pro_available_notice' ) );
 		add_action( 'admin_notices', array( $this, 'show_cf7_importer_notice' ) );
 		add_action( 'admin_notices', array( $this, 'show_addons_update_notice' ) );
-		add_action( 'admin_notices', array( $this, 'show_prelaunch_subscriptions_notice' ) );
+		// add_action( 'admin_notices', array( $this, 'show_wpmudev_giveaway' ) );
+		//add_action( 'admin_notices', array( $this, 'show_prelaunch_subscriptions_notice' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts_for_notices' ) );
 
 		// Add plugin action links.
@@ -52,13 +53,15 @@ class Forminator_Admin {
 		 * Triggered when Admin is loaded
 		 */
 		do_action( 'forminator_admin_loaded' );
+
+        $this->forminator_in_plugin_update_message();
 	}
 
 	public function enqueue_scripts_for_notices() {
 		// Hide for Forminator Pro.
-		if ( FORMINATOR_PRO ) {
+		/* if ( FORMINATOR_PRO ) {
 			return;
-		}
+		} */
 
 		// Enable notifications for main site and super admins only.
 		if ( ! is_main_site() || ! current_user_can( 'update_core' ) ) {
@@ -73,15 +76,16 @@ class Forminator_Admin {
 		$dismissed_messages = get_user_meta( get_current_user_id(), 'frmt_dismissed_messages', true );
 
 		// Hide if already dismissed.
-		if ( isset( $dismissed_messages['forminator_prelaunch_subscriptions_notice_dismissed'] ) &&
+		/* if ( isset( $dismissed_messages['forminator_prelaunch_subscriptions_notice_dismissed'] ) &&
 			 $dismissed_messages['forminator_prelaunch_subscriptions_notice_dismissed'] ) {
 			return;
-		}
+		} */
 
 		$forminator_data = new Forminator_Admin_Data();
 		$forminator_l10n = new Forminator_Admin_L10n();
 
-		wp_register_script(
+		// Discount subscription notice
+		/* wp_register_script(
 			'forminator-admin-discount',
 			forminator_plugin_url() . 'assets/js/discount.js',
 			array(
@@ -97,7 +101,26 @@ class Forminator_Admin {
 		wp_localize_script( 'forminator-admin-discount', 'forminatorData', $forminator_data->get_options_data() );
 		wp_localize_script( 'forminator-admin-discount', 'forminatorl10n', $forminator_l10n->get_l10n_strings() );
 
-		wp_enqueue_script( 'forminator-admin-discount' );
+		wp_enqueue_script( 'forminator-admin-discount' ); */
+
+		// Membership Giveaway
+		/* wp_register_script(
+			'forminator-admin-giveaway',
+			forminator_plugin_url() . 'assets/js/giveaway.js',
+			array(
+				'jquery',
+				'wp-color-picker',
+				'react',
+				'react-dom',
+			),
+			FORMINATOR_VERSION,
+			true
+		);
+
+		wp_localize_script( 'forminator-admin-giveaway', 'forminatorData', $forminator_data->get_options_data() );
+		wp_localize_script( 'forminator-admin-giveaway', 'forminatorl10n', $forminator_l10n->get_l10n_strings() );
+
+		wp_enqueue_script( 'forminator-admin-giveaway' ); */
 	}
 
 	/**
@@ -109,9 +132,9 @@ class Forminator_Admin {
 		$dismissed_messages = get_user_meta( get_current_user_id(), 'frmt_dismissed_messages', true );
 
 		// Hide for Forminator Pro.
-		if ( FORMINATOR_PRO ) {
+		/* if ( FORMINATOR_PRO ) {
 			return;
-		}
+		} */
 
 		// Enable notifications for main site and super admins only.
 		if ( ! is_main_site() || ! current_user_can( 'update_core' ) ) {
@@ -124,10 +147,10 @@ class Forminator_Admin {
 		}
 
 		// Hide if already dismissed.
-		if ( isset( $dismissed_messages['forminator_prelaunch_subscriptions_notice_dismissed'] ) &&
+		/* if ( isset( $dismissed_messages['forminator_prelaunch_subscriptions_notice_dismissed'] ) &&
 			 $dismissed_messages['forminator_prelaunch_subscriptions_notice_dismissed'] ) {
 			return;
-		}
+		} */
 
 		?>
 		<!-- Load shared module markup -->
@@ -901,5 +924,62 @@ class Forminator_Admin {
 			</div>
 		</div>
 		<?php
+	}
+
+	/**
+	 * Forminator plugin update notice
+	 *
+	 * @return void
+	 */
+	public function forminator_in_plugin_update_message() {
+		if ( ! FORMINATOR_PRO ) {
+			add_action( 'in_plugin_update_message-forminator/forminator.php', array(
+				$this,
+				'show_plugin_update_notice'
+			), 10, 2 );
+		} else {
+			add_action(
+				'load-plugins.php',
+				function () {
+					add_action( 'after_plugin_row_forminator/forminator.php', array(
+						$this,
+						'show_plugin_update_notice'
+					), 10, 2 );
+				},
+				22
+			);
+		}
+	}
+
+	/**
+	 * Show plugin update notice
+	 *
+	 * @param $data
+	 * @param $response
+	 *
+	 * @return void
+	 */
+	public function show_plugin_update_notice( $data, $response ) {
+		$plugin_data = (object) $response;
+
+		if ( empty( $plugin_data->new_version ) || empty( $plugin_data->plugin ) ) {
+			return;
+		}
+
+		if ( '1.16.0' === $plugin_data->new_version || '1.16' === $plugin_data->new_version ) {
+			$notice = sprintf(
+				__( '<strong>Important Upgrade Notice:</strong> We\'ve made some improvements to the way form submissions are handled with this update for better performance, and that can break <strong>only</strong> custom forms that may be using deprecated actions & filters. See <a href="%1$s" target="_blank">this chapter</a> in our Forminator API Docs for the complete list of those changes.', 'forminator' ),
+				'https://wpmudev.com/docs/api-plugin-development/forminator-api-docs/#modified-or-deprecated-hooks'
+			);
+			$notice .= '<br/><br/>' . esc_html__( 'Also, please ensure you have a backup of your site before updating, and check to ensure your custom forms are working as expected afterwards. If you face any issue or have any questions or doubt, don\'t hesitate to get in touch with our support heroes.', 'forminator' );
+
+			echo "<script type='text/javascript'>
+           (function ($) {
+                   $(document).ready(function (e) {
+                       $( '.wp-list-table tr[data-plugin=\"" . esc_attr( $plugin_data->plugin ) . "\"] .notice-warning' ).append( '" . addslashes( $notice ) . "' ).css('padding-bottom', '10px');
+                   });
+               })(jQuery);
+           </script>";
+		}
 	}
 }

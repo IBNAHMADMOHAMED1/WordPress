@@ -228,6 +228,8 @@
 
 			this.upload_field( form_selector );
 
+			this.init_login_2FA();
+
 			self.maybeRemoveDuplicateFields( form_selector );
 
 			// Handle function on resize
@@ -863,7 +865,7 @@
 					if ($limit.length) {
 						if ($limit.data('limit')) {
 							if ($limit.data('type') !== "words") {
-								count = $(this).val().length;
+								count = $( $(this).val() ).text().length;
 							} else {
 								count = $(this).val().trim().split(/\s+/).length;
 
@@ -918,15 +920,17 @@
 					});
 				}
 				/*
-				* We changed the autoUnmask to false so we can use the formatted (masked) values on HTML field
-				* Every time the unmasked value is needed, $(selector).inputmask('unmaskedvalue'); must be used
+				* If you need to retrieve the formatted (masked) value, you can use something like this:
+				* $element.inputmask({'autoUnmask' : false});
+				* var value = $element.val();
+				* $element.inputmask({'autoUnmask' : true});
 				*/
 				$( this ).inputmask({
 					'alias': 'decimal',
 					'rightAlign': false,
 					'digitsOptional': false,
 					'showMaskOnHover': false,
-					'autoUnmask' : false,
+					'autoUnmask' : true, // Automatically unmask the value when retrieved - this prevents the "Maximum call stack size exceeded" console error that happens in some forms that contain number/calculation fields with localized masks.
 					'removeMaskOnSubmit': true,
 				});
 			});
@@ -943,6 +947,66 @@
 					$this.val(value.substr(0, 2));
 				}
 			});
+		},
+
+		init_login_2FA: function () {
+			var self = this;
+			this.two_factor_providers( 'totp' );
+			$('body').on('click', '.forminator-2fa-link', function () {
+				self.$el.find('#login_error').remove();
+				self.$el.find('.notification').empty();
+				var slug = $(this).data('slug');
+				self.two_factor_providers( slug );
+				if ('fallback-email' === slug) {
+					self.resend_code();
+				}
+			});
+			this.$el.find('.wpdef-2fa-email-resend input').on('click', function () {
+				self.resend_code();
+			});
+		},
+		two_factor_providers: function ( slug ) {
+			var self = this;
+			self.$el.find('.forminator-authentication-box').hide();
+			self.$el.find('.forminator-authentication-box input').attr( 'disabled', true );
+			self.$el.find( '#forminator-2fa-' + slug ).show();
+			self.$el.find( '#forminator-2fa-' + slug + ' input' ).attr( 'disabled', false );
+			if ( self.$el.find('.forminator-2fa-link').length > 0 ) {
+				self.$el.find('.forminator-2fa-link').hide();
+				self.$el.find('.forminator-2fa-link:not(#forminator-2fa-link-'+ slug +')').each(function() {
+					self.$el.find('.forminator-auth-method').val( slug );
+					$( this ).find('input').attr( 'disabled', false );
+					$( this ).show();
+				});
+			}
+		},
+
+		// Logic for FallbackEmail method.
+		resend_code: function () {
+			// Work with the button 'Resen Code'.
+			var self  = this;
+			var that  = $('input[name="button_resend_code"]');
+			var token = $('.forminator-auth-token');
+			let data = {
+				action: 'forminator_2fa_fallback_email',
+				data: JSON.stringify({
+					'token': token
+				})
+			};
+			$.ajax({
+				type: 'POST',
+				url: window.ForminatorFront.ajaxUrl,
+				data: data,
+				beforeSend: function () {
+					that.attr('disabled', 'disabled');
+					$('.def-ajaxloader').show();
+				},
+				success: function (data) {
+					that.removeAttr('disabled');
+					$('.def-ajaxloader').hide();
+					$('.notification').text(data.data.message);
+				}
+			})
 		},
 
 		material_field: function () {

@@ -384,13 +384,14 @@ class Forminator_Poll_Model extends Forminator_Base_Form_Model {
 	 * @return array
 	 */
 	public function opening_status() {
-		static $info;
-		if ( isset( $info ) ) {
-			return $info;
+		static $info = array();
+
+		if ( isset( $info[ $this->id ] ) ) {
+			return $info[ $this->id ];
 		}
 
-		$settings = $this->settings;
-		$info     = array(
+		$settings          = $this->settings;
+		$info[ $this->id ] = array(
 			'status' => 'open',
 			'msg'    => '',
 		);
@@ -415,18 +416,18 @@ class Forminator_Poll_Model extends Forminator_Base_Form_Model {
 			$status = 'open';
 		}
 
-		$info['status'] = $status;
+		$info[ $this->id ]['status'] = $status;
 
 		switch ( $status ) {
 			case 'close': {
-				$info['msg'] = $close_msg;
-				return $info;
+				$info[ $this->id ]['msg'] = $close_msg;
+				return $info[ $this->id ];
 				break;
 			}
 
 			case 'pause': {
-				$info['msg'] = $pause_msg;
-				return $info;
+				$info[ $this->id ]['msg'] = $pause_msg;
+				return $info[ $this->id ];
 				break;
 			}
 
@@ -449,9 +450,9 @@ class Forminator_Poll_Model extends Forminator_Base_Form_Model {
 					if ( '' !== $open_from_time ) {
 						$open_from_timestamp = strtotime( $open_from_time );
 						if ( $current_time < $open_from_timestamp ) {
-							$info['status'] = 'before_open_from';
-							$info['msg']    = $before_open_from_msg;
-							return $info;
+							$info[ $this->id ]['status'] = 'before_open_from';
+							$info[ $this->id ]['msg']    = $before_open_from_msg;
+							return $info[ $this->id ];
 						}
 					}
 				}
@@ -461,14 +462,14 @@ class Forminator_Poll_Model extends Forminator_Base_Form_Model {
 					if ( '' !== $open_until_time ) {
 						$open_until_timestamp = strtotime( $open_until_time );
 						if ( $current_time > $open_until_timestamp ) {
-							$info['status'] = 'close';
-							$info['msg']    = $close_msg;
-							return $info;
+							$info[ $this->id ]['status'] = 'close';
+							$info[ $this->id ]['msg']    = $close_msg;
+							return $info[ $this->id ];
 						}
 					}
 				}
 
-				return $info;
+				return $info[ $this->id ];
 				break;
 			}
 
@@ -477,6 +478,6 @@ class Forminator_Poll_Model extends Forminator_Base_Form_Model {
 
 		}
 
-		return $info;
+		return $info[ $this->id ];
 	}
 }

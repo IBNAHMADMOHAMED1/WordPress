@@ -16,6 +16,7 @@
 
 	// Create the defaults once
 	var pluginName = "forminatorFrontValidate",
+	    ownMethods = {},
 		defaults   = {
 			rules: {},
 			messages: {}
@@ -49,10 +50,6 @@
 			var self      = this;
 			var submitted = false;
 			var $form     = this.$el;
-
-			if ( undefined === $.validator.methods.trim ) {
-				$.validator.addMethod("trim", nativeTrim);
-			}
 
 			$( this.element ).validate({
 
@@ -328,6 +325,15 @@
 	// A really lightweight plugin wrapper around the constructor,
 	// preventing against multiple instantiations
 	$.fn[pluginName] = function (options) {
+		// We need to restore our custom validation methods in case they were
+		// lost or overwritten by another instantiation of the jquery.Validate plugin.
+		$.each( ownMethods, function( key, method ) {
+			if ( undefined === $.validator.methods[ key ] ) {
+				$.validator.addMethod( key, method );
+			} else if ( key === 'number' ) {
+				$.validator.methods.number = ownMethods.number;
+			}
+		});
 		return this.each(function () {
 			if (!$.data(this, pluginName)) {
 				$.data(this, pluginName, new ForminatorFrontValidate(this, options));
@@ -386,7 +392,9 @@
 	$.validator.addMethod("maxwords", function (value, element, param) {
 		return this.optional(element) || value.trim().split(/\s+/).length <= param;
 	});
-	$.validator.addMethod("trim", nativeTrim);
+	$.validator.addMethod("trim", function( value, element, param ) {
+		return true === this.optional( element ) || 0 !== value.trim().length;
+	});
 	$.validator.addMethod("emailWP", function (value, element, param) {
 		if (this.optional(element)) {
 			return true;
@@ -436,6 +444,11 @@
 	});
 	$.validator.addMethod("forminatorPasswordStrength", function (value, element, param) {
 		var passwordStrength = value.trim();
+
+		// Password is optional and is empty so don't check strength.
+		if ( passwordStrength.length == 0 ) {
+			return true;
+		}
 
 		//at least 8 characters
 		if ( ! passwordStrength || passwordStrength.length < 8) {
@@ -537,8 +550,8 @@
 		return ( Math.floor( num * 100 ) / 100 ).toFixed( precision );
 	}
 
-	function nativeTrim( value, element, param ) {
-		return true === this.optional( element ) || 0 !== value.trim().length;
-	}
+	// Backup the recently added custom validation methods (they will be 
+	// checked in the plugin wrapper later)
+	ownMethods = $.validator.methods;
 
 })(jQuery, window, document);

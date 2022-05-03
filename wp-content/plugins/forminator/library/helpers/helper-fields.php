@@ -968,7 +968,7 @@ function forminator_get_account_approval_link( Forminator_Form_Model $custom_for
 		$key = esc_url(
 			add_query_arg(
 				array(
-					'page' => 'forminator_activation',
+					'page' => 'account_activation',
 					'key'  => $key,
 				),
 				home_url( '/' )

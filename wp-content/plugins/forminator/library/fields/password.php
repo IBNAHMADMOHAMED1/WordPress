@@ -271,6 +271,11 @@ class Forminator_Password extends Forminator_Field {
 		$symbol_size = 0;
 		$strlen      = mb_strlen( $password );
 
+		// Password is optional and empty so don't check strength.
+		if ( 0 === $strlen ) {
+			return true;
+		}
+
 		if ( $strlen < 8 ) {
 			return false;
 		}
@@ -304,15 +309,22 @@ class Forminator_Password extends Forminator_Field {
 	 * @return string
 	 */
 	public function get_validation_rules() {
-		$field       = $this->field;
-		$id          = self::get_property( 'element_id', $field );
-		$is_required = $this->is_required( $field );
-		$has_limit   = $this->has_limit( $field );
-		$rules       = '';
-		$is_confirm  = self::get_property( 'confirm-password', $field, '', 'bool' );
-		$is_valid    = self::get_property( 'validation', $field, 'bool' );
-
+		$field                 = $this->field;
+		$id                    = self::get_property( 'element_id', $field );
+		$is_required           = $this->is_required( $field );
+		$has_limit             = $this->has_limit( $field );
+		$rules                 = '';
+		$is_confirm            = self::get_property( 'confirm-password', $field, '', 'bool' );
+		$is_valid              = self::get_property( 'validation', $field, 'bool' );
 		$min_password_strength = self::get_property( 'strength', $field );
+		$module_id             = isset( $this->form_settings['form_id'] ) ? $this->form_settings['form_id'] : '';
+		$module_selector       = '';
+
+		if ( ! empty( $module_id ) ) {
+			$module_selector = "#forminator-module-{$module_id}";
+			$render_id       = Forminator_Render_Form::get_render_id( $module_id );
+			$module_selector .= "[data-forminator-render='{$render_id}']";
+		}
 
 		if ( ! isset( $field['limit'] ) ) {
 			$field['limit'] = 0;
@@ -345,7 +357,7 @@ class Forminator_Password extends Forminator_Field {
 			}
 			// If 'Validate' is enabled.
 			if ( 'true' === $is_valid ) {
-				$rules .= '"equalTo": "#forminator-field-' . $this->get_id( $field ) . '",' . "\n";
+				$rules .= '"equalTo": "' . $module_selector . ' #forminator-field-' . $this->get_id( $field ) . '",' . "\n";
 			}
 			$rules .= '},';
 		}
